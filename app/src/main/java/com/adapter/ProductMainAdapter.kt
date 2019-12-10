@@ -63,8 +63,7 @@ class ProductMainAdapter(var context: Context,
 
                         // name match condition. this might differ depending on your requirement
                         // here we are looking for name or phone number match
-                        if (row.category.categoryEnglish.contains(charString.toLowerCase()) ||
-                            row.category.categoryEnglish.contains(charString.toUpperCase())) {
+                        if (row.category.categoryName.toLowerCase().contains(charString)) {
                             filteredList.add(row)
                         }
                     }
