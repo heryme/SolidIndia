@@ -9,11 +9,12 @@
     <ImageView
         android:id="@+id/ivProduct"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
+        android:layout_height="@dimen/_180sdp"
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_25sdp"
-        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_home"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView

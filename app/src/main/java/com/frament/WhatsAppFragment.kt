@@ -36,7 +36,7 @@ class WhatsAppFragment : BaseFrament(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             btnShare -> {
-                val phoneNumberWithCountryCode = "+917567516191"
+                val phoneNumberWithCountryCode = "+919624777773"
                 val message = "Solid India"
 
                 startActivity(

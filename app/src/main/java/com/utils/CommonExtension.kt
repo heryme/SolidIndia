@@ -7,6 +7,12 @@ import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
+import com.solidindia.activity.MainActivity
+import androidx.core.content.ContextCompat.startActivity
+import android.content.Intent
+import android.util.DisplayMetrics
+import java.util.*
+
 
 private var toast: Toast? = null
 
@@ -58,3 +64,17 @@ fun isNetworkAvailable(context: Context): Boolean {
 fun isTablet(context: Context): Boolean {
     return context.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
 }
+
+/*fun setLocale(localeName: String,context: Context) {
+    if (localeName != currentLanguage) {
+        myLocale = Locale(localeName)
+        val res = context.getResources()
+        val dm = res.getDisplayMetrics()
+        val conf = res.getConfiguration()
+        conf.locale = myLocale
+        res.updateConfiguration(conf, dm)
+
+    } else {
+        Toast.makeText(context, "Language already selected!", Toast.LENGTH_SHORT).show()
+    }
+}*/
