@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="info.androidhive.recyclerviewsearch.MainActivity">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:orderInCategory="100"
+        android:title="@string/action_search"
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/menuEng"
+        android:title="English" />
+
+    <item
+        android:id="@+id/menuArabian"
+        android:title="Arabian" />
+
+    <item
+        android:id="@+id/menuSpanish"
+        android:title="Spanish" />
+    <item
+        android:id="@+id/menuChinese"
+        android:title="Chinese" />
+    <item
+        android:id="@+id/menuFrench"
+        android:title="French" />
+    <item
+        android:id="@+id/menuTamil"
+        android:title="Tamil" />
+    <item
+        android:id="@+id/menuTelugu"
+        android:title="Telugu" />
+
+
+
+</menu>
