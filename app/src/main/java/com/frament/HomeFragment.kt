@@ -18,6 +18,17 @@ import com.rest.ApiResponseManager
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
 import com.utils.isNetWork
+import android.os.LocaleList
+import android.os.Build.VERSION_CODES
+import android.os.Build.VERSION
+import android.util.DisplayMetrics
+import java.util.*
+import kotlin.collections.ArrayList
+
+
+import android.app.Activity
+import androidx.fragment.app.FragmentManager
+
 
 class HomeFragment : BaseFrament(), ApiResponseInterface {
     var TAG: String = javaClass.simpleName
@@ -27,6 +38,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     private lateinit var rvProductMain: RecyclerView
     private lateinit var productMainAdapter: ProductMainAdapter
     private var productList: ArrayList<ProductResponse.Data>? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +52,10 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_home, container, false)
         initIDs(rootView!!)
-        var langTyape = sessionManager["type","en"]
-        Log.e(TAG,"LanType-->$langTyape")
+        var langTyape = sessionManager["type", "en"]
+        Log.e(TAG, "LanType-->$langTyape")
 
-        callProductListAPI(langTyape)
+        //callProductListAPI(langTyape)
         return rootView
     }
 
@@ -71,7 +83,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     private fun setAdpater() {
         ///val productList: ArrayList<ProductResponse.Data.Category> = ArrayList()
 
-        productMainAdapter = ProductMainAdapter(activity!!,activity!!, productList!!)
+        productMainAdapter = ProductMainAdapter(activity!!, activity!!, productList!!)
         rvProductMain.adapter = productMainAdapter
         rvProductMain.layoutManager = LinearLayoutManager(activity)
 
@@ -123,45 +135,46 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
         return if (id == R.id.action_search) {
             true
-        } else if(id == R.id.menuEng){
-            sessionManager.put("type","en")
-            callProductListAPI("en")
+        } else if (id == R.id.menuEng) {
+            sessionManager.put("type", "en")
+            setLocale("en")
+            // callProductListAPI("en")
             true
-        }
-        else if(id == R.id.menuArabian){
-            sessionManager.put("type","ar")
+        } else if (id == R.id.menuArabian) {
+            sessionManager.put("type", "ar")
             callProductListAPI("ar")
             true
-        }
-        else if(id == R.id.menuSpanish){
-            sessionManager.put("type","sp")
+        } else if (id == R.id.menuSpanish) {
+            sessionManager.put("type", "sp")
             callProductListAPI("sp")
             true
-        }
-        else if(id == R.id.menuChinese){
-            sessionManager.put("type","ch")
+        } else if (id == R.id.menuChinese) {
+            sessionManager.put("type", "ch")
             callProductListAPI("ch")
             true
-        }
-        else if(id == R.id.menuFrench){
-            sessionManager.put("type","fr")
+        } else if (id == R.id.menuFrench) {
+            sessionManager.put("type", "fr")
             callProductListAPI("fr")
             true
-        }
-        else if(id == R.id.menuTamil){
-            sessionManager.put("type","tm")
+        } else if (id == R.id.menuTamil) {
+            sessionManager.put("type", "tm")
             callProductListAPI("tm")
             true
-        }
-        else if(id == R.id.menuTelugu){
-            sessionManager.put("type","te")
-            callProductListAPI("te")
-            true
-        }
+        } else if (id == R.id.menuTelugu) {
+            sessionManager.put("type", "te")
+            //callProductListAPI("te")
+            activity?.recreate()
+            setLocale("te")
+            val fm = activity?.supportFragmentManager
+            fm?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+           // mCallback?.onCallBack()
 
-        else super.onOptionsItemSelected(item)
+
+            true
+        } else super.onOptionsItemSelected(item)
 
     }
+
 
     override fun getApiResponse(apiResponseManager: ApiResponseManager<*>) {
         when (apiResponseManager.type) {
@@ -169,10 +182,10 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                 var model: ProductResponse
                 model = apiResponseManager.response as ProductResponse
                 Log.e(TAG, "Event List Response:- ${model}")
-                if(model.statusCode ==200) {
+                if (model.statusCode == 200) {
                     productList = ArrayList()
                     productList?.addAll(model.data)
-                   // productMainAdapter.notifyDataSetChanged()
+                    // productMainAdapter.notifyDataSetChanged()
                     setAdpater()
                 }
             }
@@ -189,14 +202,35 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         }
     }
 
-    private fun callProductListAPI(type:String) {
+    private fun callProductListAPI(type: String) {
         if (isNetWork(activity!!)) {
-        ApiRequest(activity!!, ApiInitialize.initialize(ApiInitialize.MAIN_URL_API).productList(type),
-            100, true, this)
-        }else {
-            showSnackBar(activity!!.resources.getString(R.string.internet_not_available))
+            ApiRequest(
+                activity!!, ApiInitialize.initialize(ApiInitialize.MAIN_URL_API).productList(type),
+                100, true, this
+            )
+        } else {
+            showSnackBar(activity!!.resources.getString(com.solidindia.R.string.internet_not_available))
         }
 
+    }
+
+    fun setLocale(localeString: String) {
+        val res = resources
+        val conf = res.configuration
+        val locale = Locale(localeString)
+        Locale.setDefault(locale)
+        if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR1) {
+            conf.setLocale(locale)
+            context?.getApplicationContext()?.createConfigurationContext(conf)
+        }
+
+        val dm = res.displayMetrics
+        if (VERSION.SDK_INT >= VERSION_CODES.N) {
+            conf.locales = LocaleList(locale)
+        } else {
+            conf.locale = locale
+        }
+        res.updateConfiguration(conf, dm)
     }
 
 

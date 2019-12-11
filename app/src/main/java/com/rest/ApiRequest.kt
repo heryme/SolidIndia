@@ -59,6 +59,7 @@ class ApiRequest<T>(private val activity: Activity,
 
         } else {
 
+
             val error = ErrorUtils.parseError(response)
 
             Log.e(TAG, "ERROR STATUS = " + error.status().toString() + " \n ERROR MESSAGE =" + error.message() + " \n ERROR CODE =" + error.status_code.toString())

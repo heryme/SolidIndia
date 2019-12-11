@@ -28,8 +28,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity() {
-
-    private var searchView: SearchView? = null
     lateinit var ivbarToolbar:ImageView
 
 
@@ -39,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         initView()
         loadFragment(HomeFragment(), false)
     }
+
+
 
     /**
      * Load Fragment
