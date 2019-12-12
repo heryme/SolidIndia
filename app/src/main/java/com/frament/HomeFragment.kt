@@ -3,10 +3,14 @@ package com.frament
 
 import android.app.SearchManager
 import android.content.Context
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.os.Bundle
+import android.os.LocaleList
 import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adapter.ProductMainAdapter
@@ -18,16 +22,8 @@ import com.rest.ApiResponseManager
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
 import com.utils.isNetWork
-import android.os.LocaleList
-import android.os.Build.VERSION_CODES
-import android.os.Build.VERSION
-import android.util.DisplayMetrics
 import java.util.*
 import kotlin.collections.ArrayList
-
-
-import android.app.Activity
-import androidx.fragment.app.FragmentManager
 
 
 class HomeFragment : BaseFrament(), ApiResponseInterface {
@@ -138,41 +134,53 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         } else if (id == R.id.menuEng) {
             sessionManager.put("type", "en")
             setLocale("en")
+            reCreateFragment()
             // callProductListAPI("en")
             true
         } else if (id == R.id.menuArabian) {
             sessionManager.put("type", "ar")
-            callProductListAPI("ar")
+            setLocale("ar")
+            reCreateFragment()
+            //callProductListAPI("ar")
             true
         } else if (id == R.id.menuSpanish) {
             sessionManager.put("type", "sp")
-            callProductListAPI("sp")
+            setLocale("es")
+            reCreateFragment()
+            //callProductListAPI("sp")
             true
         } else if (id == R.id.menuChinese) {
             sessionManager.put("type", "ch")
-            callProductListAPI("ch")
+            setLocale("zh")
+            reCreateFragment()
+            //callProductListAPI("ch")
             true
         } else if (id == R.id.menuFrench) {
             sessionManager.put("type", "fr")
-            callProductListAPI("fr")
+            setLocale("fr")
+            reCreateFragment()
+            //callProductListAPI("fr")
             true
         } else if (id == R.id.menuTamil) {
             sessionManager.put("type", "tm")
-            callProductListAPI("tm")
+            setLocale("ta")
+            reCreateFragment()
+           // callProductListAPI("tm")
             true
         } else if (id == R.id.menuTelugu) {
             sessionManager.put("type", "te")
             //callProductListAPI("te")
-            activity?.recreate()
             setLocale("te")
-            val fm = activity?.supportFragmentManager
-            fm?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-           // mCallback?.onCallBack()
-
-
+            reCreateFragment()
             true
         } else super.onOptionsItemSelected(item)
 
+    }
+
+    private fun reCreateFragment() {
+        activity?.recreate()
+        val fm = activity?.supportFragmentManager
+        fm?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
 

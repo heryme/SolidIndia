@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SolidIndia</string>
+    <string name="nav_home">CASA</string>
+    <string name="nav_products">Productos</string>
+    <string name="nav_profile">PERFIL</string>
+    <string name="nav_whatsapp_icon">ICONO DE WHATSAPP</string>
+    <string name="appSharedPref">solidindia</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="price">Precio</string>
+    <string name="share">Compartir</string>
+    <string name="share_with">Comparte con WhatsApp</string>
+    <string name="btn_no_text">No</string>
+    <string name="btn_yes_text">Sí</string>
+    <string name="tv_title_text">¿Estás seguro que quieres salir?</string>
+    <string name="action_search">Search</string>
+    <string name="search_hint">Search</string>
+
+    <!-- Network Msg  -->
+    <string name="toast_time_out">Por favor intente nuevamente, hay un error de red</string>
+    <string name="toast_net_work">Por favor intente nuevamente, la red no está disponible</string>
+    <string name="internet_not_available">Por favor intente nuevamente, la red no está disponible</string>
+    <string name="toast_try_after_sometimes">Algo salió mal, por favor intente después a veces ...</string>
+    <string name="toast_something_wrong">Algo salió mal. Por favor, vuelva a intentarlo..</string>
+    <string name="todo">todo</string>
+    <string name="photos_and_videos">Fotos y videos</string>
+    <string name="highlight">REALCE</string>
+    <string name="specification">ESPECIFICACIÓN</string>
+    <string name="capacity">Capacidad</string>
+    <string name="drum_diameter">Diámetro del tambor</string>
+    <string name="more_then">more_then</string>
+</resources>

@@ -1,29 +1,22 @@
 package com.solidindia.activity
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import com.frament.HomeFragment
-
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.view.MenuItem
-import android.widget.Toast
-import com.frament.ProductFragment
-import kotlinx.android.synthetic.main.activity_main.*
 import android.app.Dialog
+import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.Window
 import android.widget.Button
-import android.app.SearchManager
-import android.content.Context
-import android.view.Menu
 import android.widget.ImageView
-import androidx.appcompat.widget.SearchView
-import androidx.core.widget.TextViewCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.frament.HomeFragment
+import com.frament.ProductFragment
+import com.frament.ProfileFragment
 import com.frament.WhatsAppFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.solidindia.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 
@@ -97,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                         return true
                     }
                     R.id.navigation_profile -> {
+                        loadFragment(ProfileFragment(), true)
                         return true
                     }
                     R.id.navigation_whats_app -> {
