@@ -6,8 +6,8 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adapter.ProductMainAdapter
@@ -16,10 +16,10 @@ import com.rest.ApiInitialize
 import com.rest.ApiRequest
 import com.rest.ApiResponseInterface
 import com.rest.ApiResponseManager
-
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
 import com.utils.isNetWork
+
 
 /**
  * A simple [Fragment] subclass.
@@ -46,7 +46,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
         initIDs(rootView!!)
         var langTyape = sessionManager["type",""]
         Log.e(TAG,"LanType-->$langTyape")
-        callProductListAPI(langTyape)
+        //callProductListAPI(langTyape)
         return  rootView
     }
 
@@ -164,42 +164,71 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
             true
         } else if(id == R.id.menuEng){
             sessionManager.put("type","en")
-            callProductListAPI("en")
+            //callProductListAPI("en")
             true
         }
         else if(id == R.id.menuArabian){
             sessionManager.put("type","ar")
-            callProductListAPI("ar")
+            //callProductListAPI("ar")
             true
         }
         else if(id == R.id.menuSpanish){
             sessionManager.put("type","sp")
-            callProductListAPI("sp")
+           // callProductListAPI("sp")
             true
         }
         else if(id == R.id.menuChinese){
             sessionManager.put("type","ch")
-            callProductListAPI("ch")
+            //callProductListAPI("ch")
             true
         }
         else if(id == R.id.menuFrench){
             sessionManager.put("type","fr")
-            callProductListAPI("fr")
+            //callProductListAPI("fr")
             true
         }
         else if(id == R.id.menuTamil){
             sessionManager.put("type","tm")
-            callProductListAPI("tm")
+            //callProductListAPI("tm")
             true
         }
         else if(id == R.id.menuTelugu){
             sessionManager.put("type","te")
-            callProductListAPI("te")
+            //callProductListAPI("te")
             true
         }
 
         else super.onOptionsItemSelected(item)
+    }
 
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        val menuEng = menu.findItem(R.id.menuEng)
+        if (menuEng != null)
+            menuEng.isVisible = false
+
+        val menuArabian = menu.findItem(R.id.menuArabian)
+        if (menuArabian != null)
+            menuArabian.isVisible = false
+
+        val menuSpanish = menu.findItem(R.id.menuSpanish)
+        if (menuSpanish != null)
+            menuSpanish.isVisible = false
+
+        val menuChinese = menu.findItem(R.id.menuChinese)
+        if (menuChinese != null)
+            menuChinese.isVisible = false
+
+        val menuFrench = menu.findItem(R.id.menuFrench)
+        if (menuFrench != null)
+            menuFrench.isVisible = false
+
+        val menuTamil = menu.findItem(R.id.menuTamil)
+        if (menuTamil != null)
+            menuTamil.isVisible = false
+
+        val menuTelugu = menu.findItem(R.id.menuTelugu)
+        if (menuTelugu != null)
+            menuTelugu.isVisible = false
     }
 
 

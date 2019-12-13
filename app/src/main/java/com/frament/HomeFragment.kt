@@ -3,10 +3,7 @@ package com.frament
 
 import android.app.SearchManager
 import android.content.Context
-import android.os.Build.VERSION
-import android.os.Build.VERSION_CODES
 import android.os.Bundle
-import android.os.LocaleList
 import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -21,9 +18,8 @@ import com.rest.ApiResponseInterface
 import com.rest.ApiResponseManager
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
+import com.utils.getLanguageType
 import com.utils.isNetWork
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class HomeFragment : BaseFrament(), ApiResponseInterface {
@@ -51,6 +47,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         var langTyape = sessionManager["type", "en"]
         Log.e(TAG, "LanType-->$langTyape")
 
+        getLanguageType(activity!!,langTyape)
         //callProductListAPI(langTyape)
         return rootView
     }
@@ -133,44 +130,52 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
             true
         } else if (id == R.id.menuEng) {
             sessionManager.put("type", "en")
-            setLocale("en")
+
+            getLanguageType(activity!!,"en")
+            //setLocale("en")
             reCreateFragment()
             // callProductListAPI("en")
             true
         } else if (id == R.id.menuArabian) {
             sessionManager.put("type", "ar")
-            setLocale("ar")
+            //setLocale("ar")
+            getLanguageType(activity!!,"ar")
             reCreateFragment()
             //callProductListAPI("ar")
             true
         } else if (id == R.id.menuSpanish) {
             sessionManager.put("type", "sp")
-            setLocale("es")
+            //setLocale("es")
+            getLanguageType(activity!!,"sp")
             reCreateFragment()
             //callProductListAPI("sp")
             true
         } else if (id == R.id.menuChinese) {
             sessionManager.put("type", "ch")
-            setLocale("zh")
+            getLanguageType(activity!!,"ch")
+            //setLocale("zh")
             reCreateFragment()
             //callProductListAPI("ch")
             true
         } else if (id == R.id.menuFrench) {
             sessionManager.put("type", "fr")
-            setLocale("fr")
+            //setLocale("fr")
+            getLanguageType(activity!!,"fr")
             reCreateFragment()
             //callProductListAPI("fr")
             true
         } else if (id == R.id.menuTamil) {
             sessionManager.put("type", "tm")
-            setLocale("ta")
+            getLanguageType(activity!!,"tm")
+            //setLocale("ta")
             reCreateFragment()
            // callProductListAPI("tm")
             true
         } else if (id == R.id.menuTelugu) {
             sessionManager.put("type", "te")
+            getLanguageType(activity!!,"te")
             //callProductListAPI("te")
-            setLocale("te")
+            //setLocale("te")
             reCreateFragment()
             true
         } else super.onOptionsItemSelected(item)
@@ -222,7 +227,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
     }
 
-    fun setLocale(localeString: String) {
+  /*  fun setLocale(localeString: String) {
         val res = resources
         val conf = res.configuration
         val locale = Locale(localeString)
@@ -239,7 +244,24 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
             conf.locale = locale
         }
         res.updateConfiguration(conf, dm)
-    }
+    }*/
 
-
+   /* fun getLanguageType(type: String){
+        Log.e(TAG,"Selecetd Language Type---$type")
+        if(type.equals("en")) {
+            setLocale(activity!!,"en")
+        }else if (type.equals("ar")) {
+            setLocale(activity!!,"ar")
+        }else if (type.equals("sp")) {
+            setLocale(activity!!,"es")
+        }else if (type.equals("ch")) {
+            setLocale(activity!!,"zh")
+        }else if (type.equals("fr")) {
+            setLocale(activity!!,"fr")
+        }else if (type.equals("tm")) {
+            setLocale(activity!!,"ta")
+        }else if (type.equals("te")) {
+            setLocale(activity!!,"te")
+        }
+    }*/
 }

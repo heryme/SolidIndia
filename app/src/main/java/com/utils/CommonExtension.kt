@@ -1,12 +1,14 @@
 package com.utils
 
 import android.annotation.SuppressLint
-import android.app.ProgressDialog
 import android.content.Context
-import android.content.res.Configuration
 import android.net.ConnectivityManager
+import android.os.Build
+import android.os.LocaleList
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDialog
+import java.util.*
+
 private var toast: Toast? = null
 
 @SuppressLint("ShowToast")
@@ -52,4 +54,42 @@ fun isNetworkAvailable(context: Context): Boolean {
     val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val activeNetworkInfo = connectivityManager.activeNetworkInfo
     return activeNetworkInfo != null
+}
+
+fun setLocale(context: Context,localeString: String) {
+    val res = context.resources
+    val conf = res.configuration
+    val locale = Locale(localeString)
+    Locale.setDefault(locale)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        conf.setLocale(locale)
+        context?.getApplicationContext()?.createConfigurationContext(conf)
+    }
+
+    val dm = res.displayMetrics
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        conf.locales = LocaleList(locale)
+    } else {
+        conf.locale = locale
+    }
+    res.updateConfiguration(conf, dm)
+}
+
+fun getLanguageType(context: Context,type: String){
+    //Log.e(TAG,"Selecetd Language Type---$type")
+    if(type.equals("en")) {
+        setLocale(context,"en")
+    }else if (type.equals("ar")) {
+        setLocale(context,"ar")
+    }else if (type.equals("sp")) {
+        setLocale(context,"es")
+    }else if (type.equals("ch")) {
+        setLocale(context,"zh")
+    }else if (type.equals("fr")) {
+        setLocale(context,"fr")
+    }else if (type.equals("tm")) {
+        setLocale(context,"ta")
+    }else if (type.equals("te")) {
+        setLocale(context,"te")
+    }
 }
