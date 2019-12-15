@@ -27,7 +27,38 @@
     <string name="specification">規格</string>
     <string name="capacity">容量</string>
     <string name="drum_diameter">滾筒直徑</string>
-    <string name="more_then">more_then</string>
+
+    <string name="more_then">超过45年\ n提供\ n道路施工设备的经验</string>
+    <string name="company_profile">公司简介</string>
+    <string name="founded">Late Shri Vashrambhai于1972年成立并建立
+Dodiya，我们在Solid公司在道路建设领域拥有举足轻重的地位
+设备制造。通过寻求技术更新
+全球市场，我们感受到了制造我们产品的需求
+通过尽可能最好的技术更改来更好地工作，并致力于
+满足所有利基需求。这种做法使我们成为
+印度领先和最具创新性的制造商。我们的队伍
+的专家研究人员竭尽全力提供有利可图的解决方案
+使用最新技术。 \ n \ n我们的目标是设计和交付最消费者友好，创新的产品
+道路施工设备的实用产品。我们的
+主要产品范围包括沥青摊铺机修整机（具有2.5
+米至6米的铺装宽度）和文具/移动式沥青
+鼓式混合设备（容量为40 TPH至150 TPH）。</string>
+
+    <string name="chirmen_achiv">董事长的成就</string>
+    <string name="chairman">成立于1972年的Solid董事长兼创始人shri Hasmukhbhai
+Dodia是商科毕业生，毕业后
+法学学士学位。他拥有30年的现场工作经验，
+以产业为中心的发展背后的支柱和力量
+旨在提供对客户至关重要的性能的机器。 \ n \ n他相信能够提供高效的工业机械，例如道路
+沥青搅拌站，沥青施工设备
+鼓拌设备，沥青摊铺机等最新技术
+向客户提供越来越简单的任务。</string>
+
+
+    <string name="founder_of_solid">固体创始人</string>
+    <string name="global">全球安装</string>
+    <string name="download">下载</string>
+    <string name="road">道路施工設備瀝青</string>
 
 
 </resources>

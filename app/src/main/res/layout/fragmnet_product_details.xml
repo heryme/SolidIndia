@@ -11,18 +11,17 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/_20sdp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_20sdp">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvBack"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_height="@dimen/_17sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:drawableLeft="@drawable/ic_back"
-            android:gravity="center"
             android:text="Back"
             android:textAllCaps="true"
             android:textColor="#0000FF"
@@ -177,8 +176,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
             android:layout_marginTop="@dimen/_5sdp"
+            android:visibility="gone"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:text="Low Maintaince Cost"
+            tools:text="Low Maintaince Cost"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
@@ -187,6 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
+            android:visibility="gone"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:text="Ensures High Quality Asphanlt Mix"
@@ -326,6 +327,38 @@
                     android:textColor="@color/black"
                     android:textSize="12sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height=".5dp"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@color/grey" />
         </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="More Product"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height=".5dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@color/grey" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProductDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>

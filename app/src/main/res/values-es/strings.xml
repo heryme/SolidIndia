@@ -27,5 +27,38 @@
     <string name="specification">ESPECIFICACIÓN</string>
     <string name="capacity">Capacidad</string>
     <string name="drum_diameter">Diámetro del tambor</string>
-    <string name="more_then">more_then</string>
+
+
+    <string name="more_then">MÁS DE 45 AÑOS \ n EXPERIENCIA DE SUMINISTRO \ n EQUIPOS PARA CONSTRUCCIÓN DE CARRETERAS</string>
+    <string name="company_profile">Perfil de la compañía</string>
+    <string name="founded">Fundado y establecido en 1972 por el último Shri Vashrambhai
+Dodiya, nosotros en Solid tenemos una identidad prominente en la construcción de carreteras
+Fabricación de equipos. Al buscar actualizaciones técnicas de
+mercado global, percibimos las demandas para hacer nuestros productos
+mejor con los mejores cambios técnicos posibles y trabajado para
+Satisfacer las demandas de cada nicho. Esta práctica nos ha convertido en uno de
+Los principales y más innovadores fabricantes de la India. Nuestro equipo
+de investigadores expertos ponen todos sus esfuerzos en ofrecer soluciones rentables
+utilizando las últimas tecnologías \ n \ nNuestro objetivo es diseñar y entregar lo más innovador y amigable para el consumidor
+productos prácticos de equipos de construcción de carreteras. Nuestro
+gama de productos clave incluye acabadoras de pavimentadoras de asfalto (que tiene 2.5
+metros a 6 metros de ancho de pavimentación) y Papelería / Asfalto móvil
+Plantas de mezcla de tambor (capacidades de 40 TPH a 150 TPH).</string>
+
+    <string name="chirmen_achiv">Logro del presidente</string>
+    <string name="chairman">Presidente y Fundador de Solid que se creó en 1972, Sri Hasmukhbhai
+Dodia es un graduado de comercio con posgrado
+Licenciatura en LLB. Con 30 años de experiencia en el terreno y en el campo, es
+El pilar y la fuerza detrás del desarrollo de la industria
+Máquinas destinadas a ofrecer un rendimiento esencial para los clientes. \ n \ nCreía en proporcionar máquinas industriales eficientes como la carretera
+equipos de construcción de la planta de mezcla de lotes de asfalto, asfalto
+Planta de mezcla de tambor, pavimentadora de asfalto, etc. Con la última tecnología
+a los clientes para tareas más simples y fáciles.</string>
+
+
+    <string name="founder_of_solid">Fundador de Solid</string>
+    <string name="global">Instalaciones globales</string>
+    <string name="download">Descargar</string>
+    <string name="road">ASFALTO DE EQUIPO DE CONSTRUCCIÓN DE CARRETERAS</string>
+
 </resources>

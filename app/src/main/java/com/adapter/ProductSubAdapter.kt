@@ -17,17 +17,22 @@ import com.solidindia.activity.MainActivity
 import kotlinx.android.synthetic.main.row_main_product.view.*
 import kotlinx.android.synthetic.main.row_sub_product.view.*
 
+
+
 class ProductSubAdapter(
     var context: Context,
-    var activity:Activity,
-    var productSubList: ArrayList<ProductResponse.Data.Category.Product>
+    var activity: Activity,
+    var productSubList: ArrayList<ProductResponse.Data.Category.Product>,
+    var pos: Int,
+    var isShowAllListItem: Boolean
 ) :
 
     RecyclerView.Adapter<ProductSubAdapter.SubViewHolder>() {
-    protected lateinit var appcontroller: AppController
+    lateinit var appcontroller: AppController
     override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
         holder.bind(position, productSubList)
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubViewHolder =
         SubViewHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -45,8 +50,23 @@ class ProductSubAdapter(
 
     inner class SubViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         @SuppressLint("SetTextI18n")
-        fun bind(position: Int, productList: List<ProductResponse.Data.Category.Product>) {
+        fun bind(position: Int, productList: ArrayList<ProductResponse.Data.Category.Product>) {
             appcontroller = activity.application as AppController
+
+            if (isShowAllListItem) {
+                itemView.visibility = View.VISIBLE
+                val params = RecyclerView.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)
+                params.setMargins(35, 0, 35, 0);
+
+                itemView.setLayoutParams(params)
+            } else {
+                if (position == appcontroller.getSubAdapterPost()) {
+                    itemView.visibility = View.GONE
+                    itemView.setLayoutParams(RecyclerView.LayoutParams(0, 0))
+
+                }
+            }
 
             itemView.tvProductName?.text = productList[position].productName
             itemView.tvProductSubName?.text = productList[position].capacity
@@ -59,7 +79,9 @@ class ProductSubAdapter(
 
 
             itemView.llSubProduct?.setOnClickListener {
-                 appcontroller.setProductData(productList[position])
+                appcontroller.setProductData(productList[position])
+                appcontroller.setSubAdapterPost(position)
+                appcontroller.setMainAdapterPost(pos)
                 (context as MainActivity).loadFragment(ProductDetailsFragment(), false)
             }
         }

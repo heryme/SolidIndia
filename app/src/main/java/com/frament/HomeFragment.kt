@@ -3,9 +3,11 @@ package com.frament
 
 import android.app.SearchManager
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,7 +30,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     private var rootView: View? = null
     private var searchView: SearchView? = null
     private lateinit var rvProductMain: RecyclerView
-    private lateinit var productMainAdapter: ProductMainAdapter
+    private var productMainAdapter: ProductMainAdapter?=null
     private var productList: ArrayList<ProductResponse.Data>? = null
 
 
@@ -48,7 +50,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         Log.e(TAG, "LanType-->$langTyape")
 
         getLanguageType(activity!!,langTyape)
-        //callProductListAPI(langTyape)
+        callProductListAPI(langTyape)
         return rootView
     }
 
@@ -96,13 +98,13 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         searchView!!.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 // filter recycler view when query submitted
-                productMainAdapter.getFilter().filter(query)
+                productMainAdapter?.getFilter()?.filter(query)
                 return false
             }
 
             override fun onQueryTextChange(query: String): Boolean {
                 // filter recycler view when text is changed
-                productMainAdapter.getFilter().filter(query)
+                productMainAdapter?.getFilter()?.filter(query)
                 return false
             }
         })
@@ -134,7 +136,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
             getLanguageType(activity!!,"en")
             //setLocale("en")
             reCreateFragment()
-            // callProductListAPI("en")
+            //callProductListAPI("en")
             true
         } else if (id == R.id.menuArabian) {
             sessionManager.put("type", "ar")
@@ -169,12 +171,12 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
             getLanguageType(activity!!,"tm")
             //setLocale("ta")
             reCreateFragment()
-           // callProductListAPI("tm")
+            //callProductListAPI("tm")
             true
         } else if (id == R.id.menuTelugu) {
             sessionManager.put("type", "te")
             getLanguageType(activity!!,"te")
-            //callProductListAPI("te")
+           // callProductListAPI("te")
             //setLocale("te")
             reCreateFragment()
             true
@@ -182,7 +184,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
     }
 
-    private fun reCreateFragment() {
+     fun reCreateFragment() {
         activity?.recreate()
         val fm = activity?.supportFragmentManager
         fm?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
@@ -198,6 +200,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                 if (model.statusCode == 200) {
                     productList = ArrayList()
                     productList?.addAll(model.data)
+                    appcontroller.setDataList(productList!!)
                     // productMainAdapter.notifyDataSetChanged()
                     setAdpater()
                 }
@@ -215,6 +218,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun callProductListAPI(type: String) {
         if (isNetWork(activity!!)) {
             ApiRequest(

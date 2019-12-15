@@ -17,6 +17,13 @@ import com.bumptech.glide.Glide
 import com.model.ProductResponse
 import com.solidindia.R
 import kotlinx.android.synthetic.main.row_sub_product.view.*
+import android.content.Intent
+import android.net.Uri
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.adapter.ProductMainAdapter
+import com.adapter.ProductSubAdapter
+import java.lang.StringBuilder
 
 
 class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
@@ -34,6 +41,9 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private lateinit var tvHighlightDrumDiaValue: TextView
     private lateinit var tvHighlightHotMixValue: TextView
     private lateinit var tvHighlightCompect: TextView
+    private lateinit var rvProductDetails: RecyclerView
+    private var productSubdapter: ProductSubAdapter?=null
+    private var productSubList: ArrayList<ProductResponse.Data.Category.Product>? = null
 
     private var myViewPagerAdapter: MyViewPagerAdapter? = null
     var introSliderList: ArrayList<ProductResponse.Data.Category.Product.ProductImage>? = null
@@ -74,6 +84,8 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
 
     override fun initListeners() {
         tvBack.setOnClickListener(this)
+        btnShare.setOnClickListener(this)
+        btnPrice.setOnClickListener(this)
     }
 
     override fun initData() {
@@ -88,7 +100,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvProductSubName.text = productData?.capacity
         tvHighlightCapacityValue.text = productData?.capacity
         tvHighlightDrumDiaValue.text = productData?.drumDiameter
-        tvHighlightHotMixValue.text = productData?.drumDiameter
+        tvHighlightHotMixValue.text = productData?.storage
         tvHighlightCompect.text = productData?.highlights
     }
 
@@ -104,6 +116,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvHighlightDrumDiaValue = rootView.findViewById(R.id.tvHighlightDrumDiaValue)
         tvHighlightHotMixValue = rootView.findViewById(R.id.tvHighlightHotMixValue)
         tvHighlightCompect = rootView.findViewById(R.id.tvHighlightCompect)
+        rvProductDetails = rootView.findViewById(R.id.rvProductDetails)
 
     }
 
@@ -111,6 +124,25 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         when (view) {
             tvBack -> {
                 (context as MainActivity).fragmentHandling()
+            }
+            btnShare->{
+                shareIntent()
+            }
+            btnPrice->{
+                val phoneNumberWithCountryCode = "+919624777773"
+                val message = "Solid India"
+
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(
+                            String.format(
+                                "https://api.whatsapp.com/send?phone=%s&text=%s",
+                                phoneNumberWithCountryCode, shareData()
+                            )
+                        )
+                    )
+                )
             }
         }
     }
@@ -121,6 +153,16 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         myViewPagerAdapter = MyViewPagerAdapter(activity, introSliderList)
         vpSlider.setAdapter(myViewPagerAdapter);
         vpSlider.addOnPageChangeListener(viewPagerPageChangeListener);
+
+        Log.e(TAG,"getMainAdapterPost->" + appcontroller.getMainAdapterPost() )
+        Log.e(TAG,"getSubAdapterPost->" + appcontroller.getSubAdapterPost() )
+
+        productSubList = ArrayList()
+        productSubList?.addAll(appcontroller.getDataList()[appcontroller.getMainAdapterPost()].category.product)
+        productSubdapter = ProductSubAdapter(activity!!, activity!!, productSubList!!,appcontroller.getMainAdapterPost(),false)
+        rvProductDetails.adapter = productSubdapter
+        rvProductDetails.layoutManager = LinearLayoutManager(activity)
+
     }
 
     var viewPagerPageChangeListener: ViewPager.OnPageChangeListener =
@@ -135,4 +177,35 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
 
             override fun onPageScrollStateChanged(arg0: Int) {}
         }
+
+    private fun shareIntent() {
+
+
+
+        val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, R.string.app_name)
+        sharingIntent.putExtra(
+            android.content.Intent.EXTRA_TEXT,shareData()
+        )
+        startActivity(Intent.createChooser(sharingIntent, "Share app via"))
+    }
+
+
+    private fun shareData():String{
+        var stringBuilder = StringBuilder()
+        stringBuilder.append(productData?.productName)
+        stringBuilder.append(" ")
+        stringBuilder.append(productData?.price)
+        stringBuilder.append(" ")
+        stringBuilder.append(productData?.capacity)
+        stringBuilder.append(" ")
+        stringBuilder.append(productData?.drumDiameter)
+        stringBuilder.append(" ")
+        stringBuilder.append("Solid india pvt ltd")
+        stringBuilder.append(" ")
+        stringBuilder.append("http://www.solid1972.com")
+        return stringBuilder.toString()
+
+    }
 }

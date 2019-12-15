@@ -16,6 +16,24 @@
         android:scaleType="fitXY"
         android:src="@drawable/ic_home"
         app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:text="@string/road"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_12sdp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@color/grey" />
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProductMain"

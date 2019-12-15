@@ -3,12 +3,15 @@ package com.rest
 import android.accounts.NetworkErrorException
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDialog
 import com.solidindia.R
+import com.utils.ProgressDialog
 import com.utils.Toast
 import com.utils.dismissDialog
 import com.utils.getProgressDialog
@@ -19,6 +22,7 @@ import java.net.SocketTimeoutException
 import java.text.ParseException
 import java.util.concurrent.TimeoutException
 
+@RequiresApi(Build.VERSION_CODES.KITKAT)
 @SuppressLint("ParcelCreator")
 class ApiRequest<T>(private val activity: Activity,
                     objectType: T,
@@ -37,6 +41,7 @@ class ApiRequest<T>(private val activity: Activity,
         call!!.enqueue(this)
     }
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     private fun showProgress() {
         if (isShowProgressDialog) {
             mProgressDialog = getProgressDialog(activity)

@@ -46,7 +46,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
         initIDs(rootView!!)
         var langTyape = sessionManager["type",""]
         Log.e(TAG,"LanType-->$langTyape")
-        //callProductListAPI(langTyape)
+        callProductListAPI(langTyape)
         return  rootView
     }
 

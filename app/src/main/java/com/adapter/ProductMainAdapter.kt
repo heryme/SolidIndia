@@ -10,9 +10,12 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.app.AppController
 import com.model.ProductResponse
 import com.solidindia.R
 import kotlinx.android.synthetic.main.row_main_product.view.*
+
+
 
 class ProductMainAdapter(var context: Context,
                          var activity:Activity,
@@ -20,9 +23,11 @@ class ProductMainAdapter(var context: Context,
     RecyclerView.Adapter<ProductMainAdapter.SubViewHolder>(), Filterable {
 
     private lateinit var productMainAdapter: ProductSubAdapter
+    var appcontroller: AppController
     private var productFilterdList = ArrayList<ProductResponse.Data>()
     init {
         productFilterdList.addAll(productList)
+        appcontroller = activity.application as AppController
     }
     override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
         holder.bind(position, productList)
@@ -46,8 +51,10 @@ class ProductMainAdapter(var context: Context,
     inner class SubViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         @SuppressLint("SetTextI18n")
         fun bind(position: Int, productList: List<ProductResponse.Data>) {
-            itemView.tvProductNameMain?.text = productList[position].category.categoryName
-            setAdpater(itemView.rvSubProduct,productList[position].category.product as ArrayList<ProductResponse.Data.Category.Product>)
+            itemView.tvProductNameMain?.text = productFilterdList[position].category.categoryName
+            setAdpater(itemView.rvSubProduct,productFilterdList[position].category.product as ArrayList<ProductResponse.Data.Category.Product>,position)
+            appcontroller.setMainAdapterPost(position)
+
         }
     }
 
@@ -56,22 +63,20 @@ class ProductMainAdapter(var context: Context,
             override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {
                 val charString = charSequence.toString()
                 if (charString.isEmpty()) {
-                    productFilterdList = productList as ArrayList<ProductResponse.Data>
+                    productFilterdList = productList
                 } else {
                     val filteredList = ArrayList<ProductResponse.Data>()
                     for (row in productList) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (row.category.categoryName.toLowerCase().contains(charString)) {
+                        if (row.category.categoryName.toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row)
                         }
                     }
-
                     productFilterdList = filteredList
                 }
 
-                val filterResults = Filter.FilterResults()
+
+                var filterResults = Filter.FilterResults()
                 filterResults.values = productFilterdList
                 return filterResults
             }
@@ -86,9 +91,8 @@ class ProductMainAdapter(var context: Context,
         }
     }
 
-    private fun setAdpater(recyclerView: RecyclerView,productSubList: ArrayList<ProductResponse.Data.Category.Product>) {
-
-        productMainAdapter = ProductSubAdapter(context,activity, productSubList)
+    private fun setAdpater(recyclerView: RecyclerView,productSubList: ArrayList<ProductResponse.Data.Category.Product>,position: Int) {
+        productMainAdapter = ProductSubAdapter(context,activity, productSubList,position,true)
         recyclerView.adapter = productMainAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }

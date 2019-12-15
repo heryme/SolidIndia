@@ -23,7 +23,7 @@
         android:indeterminateTint="@color/colorAccent"
         android:padding="@dimen/_10sdp" />
 
-    <com.activityhub.utils.adv_progress.CircularProgressBar
+    <com.utils.CircularProgressBar
         android:id="@+id/mProgressbar"
         android:layout_width="@dimen/_34sdp"
         android:layout_height="@dimen/_34sdp"

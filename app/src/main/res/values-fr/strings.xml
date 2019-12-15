@@ -27,6 +27,37 @@
     <string name="specification">SPÉCIFICATION</string>
     <string name="capacity">Capacité</string>
     <string name="drum_diameter">Diamètre du tambour</string>
-    <string name="more_then">more_then</string>
+
+    <string name="more_then">PLUS DE 45 ANS \ EXPÉRIENCE DE FOURNITURE \ n ÉQUIPEMENT DE CONSTRUCTION ROUTIÈRE</string>
+    <string name="company_profile">Profil de la société</string>
+    <string name="founded">Fondée et établie en 1972 par feu Shri Vashrambhai
+Dodiya, nous à Solid détenons une identité de premier plan dans la construction de routes
+Fabrication d\'équipements. En recherchant des mises à jour techniques auprès de
+marché mondial, nous avons senti les demandes de fabrication de nos produits
+mieux avec les meilleures modifications techniques possibles et travaillé sur
+satisfaire toutes les demandes de niche. Cette pratique a fait de nous l\'un des
+les fabricants leaders et les plus innovants de l\'Inde. Notre équipe
+des chercheurs experts mettent tout en œuvre pour proposer des solutions rentables
+en utilisant les dernières technologies. \ n \ nNous visons à concevoir et à proposer des produits innovants et conviviaux
+produits pourtant pratiques des équipements de construction de routes. Notre
+La gamme de produits clés comprend les finisseurs de pavés d\'asphalte (ayant 2,5
+mètres à 6 mètres de largeur de pavage) et Papeterie / Asphalte mobile
+Installations de mélange de fûts (capacités de 40 TPH à 150 TPH).</string>
+
+    <string name="chirmen_achiv">Réalisation du président</string>
+    <string name="chairman">Président et fondateur de Solid créé en 1972, Shri Hasmukhbhai
+Dodia est un diplômé en commerce détenant un diplôme
+diplôme en LLB. Avec 30 ans d\'expérience au sol et sur le terrain, il est
+le pilier et la force derrière le développement de l\'industrie centrée
+machines visant à offrir des performances essentielles aux clients. \ n \ nIl croyait en la fourniture de machines industrielles efficaces comme la route
+équipements de construction de l\'usine de mélange par lots d\'asphalte, asphalte
+Usine de mélange de fûts, finisseur de finisseur, etc. avec les dernières technologies
+aux clients pour des tâches plus simples et plus faciles.</string>
+
+
+    <string name="founder_of_solid">Fondateur de Solid</string>
+    <string name="global">Installations globales</string>
+    <string name="download">Télécharger</string>
+    <string name="road">ASPHALTE D\'ÉQUIPEMENT DE CONSTRUCTION ROUTIÈRE</string>
 
 </resources>

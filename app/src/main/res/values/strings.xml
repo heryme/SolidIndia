@@ -28,6 +28,35 @@
     <string name="capacity">Capacity</string>
     <string name="drum_diameter">Drum diameter</string>
     <string name="more_then" translatable="false">MORE THAN 45 YEARS \nEXPERIENCE OF SUPPLYING \nROAD CONSTRUCTION EQUIPMENTS</string>
+    <string name="company_profile" translatable="false">Company Profile</string>
+    <string name="founded" translatable="false">Founded and established in 1972 by Late Shri Vashrambhai
+Dodiya, we at Solid hold a prominent identity in Road Construction
+Equipment manufacturing. By seeking technical updates from
+global market, we sensed the demands to make our products
+better with best possible technical changes and worked upon to
+satisfy the every niche demands. This practice has made us one of
+the leading and most innovative manufacturers of India. Our team
+of expert researchers put all their efforts in offering profitable solutions
+using latest technologies.  \n\nWe aim to design and deliver most consumer friendly, innovative
+yet practical products of Road Construction Equipments. Our
+range of key products include Asphalt Paver Finishers (having 2.5
+meters to 6 meters paving width) and Stationery / Mobile Asphalt
+Drum Mix Plants (40 TPH to 150 TPH capacities).</string>
+
+    <string name="chirmen_achiv" translatable="false">Chairman’s Achievement</string>
+    <string name="chairman" translatable="false">Chairman and Founder of Solid that was setup in 1972, shri Hasmukhbhai
+Dodia is a Commerce Graduate holding post graduation
+degree in LLB. With 30 years of floor and on field experience, he is
+the pillar and strength behind the development of industry-centric
+machines aiming to offer performance essential to the customers. \n\nHe believed in providing the efficient industrial machines like road
+construction equipments of Asphalt Batch Mix Plant, Asphalt
+Drum Mix Plant, Asphalt Paver Finisher etc. With latest technology
+to the customers for simpler and easier tasks.</string>
 
 
+    <string name="founder_of_solid" translatable="false">Founder of Solid</string>
+    <string name="global" translatable="false">Global Installations</string>
+    <string name="download" translatable="false">Download</string>
+
+    <string name="road">ROAD CONSTRUCTION EUQIPMENT ASPHALT</string>
 </resources>

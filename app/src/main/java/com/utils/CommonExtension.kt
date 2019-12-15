@@ -5,7 +5,9 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.LocaleList
+import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDialog
 import java.util.*
 
@@ -24,10 +26,11 @@ fun Toast(msg: Any?, isShort: Boolean = true, app: Context) {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.KITKAT)
 fun getProgressDialog(context: Context): AppCompatDialog {
 
     val isCalncelable = false
-    val myCustomProgressDialog = AppCompatDialog(context)
+    val myCustomProgressDialog = ProgressDialog(context)
     myCustomProgressDialog.setCancelable(isCalncelable)
     myCustomProgressDialog.show()
     return myCustomProgressDialog
@@ -76,7 +79,7 @@ fun setLocale(context: Context,localeString: String) {
 }
 
 fun getLanguageType(context: Context,type: String){
-    //Log.e(TAG,"Selecetd Language Type---$type")
+    Log.e("TAG","Selecetd Language Type---$type")
     if(type.equals("en")) {
         setLocale(context,"en")
     }else if (type.equals("ar")) {
