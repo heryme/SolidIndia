@@ -2,6 +2,7 @@
     <string name="app_name">SolidIndia</string>
     <string name="nav_home">HOME</string>
     <string name="nav_products">PRODUCTS</string>
+    <string name="products">Products</string>
     <string name="nav_profile">PROFILE</string>
     <string name="nav_whatsapp_icon">WHATSAPPICON</string>
     <string name="appSharedPref">solidindia</string>
@@ -58,5 +59,5 @@ to the customers for simpler and easier tasks.</string>
     <string name="global" translatable="false">Global Installations</string>
     <string name="download" translatable="false">Download</string>
 
-    <string name="road">ROAD CONSTRUCTION EUQIPMENT ASPHALT</string>
+    <string name="road">ROAD CONSTRUCTION EUQIPMENT</string>
 </resources>

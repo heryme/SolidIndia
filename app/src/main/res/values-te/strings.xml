@@ -2,6 +2,7 @@
     <string name="app_name">SolidIndia</string>
     <string name="nav_home">హోమ్</string>
     <string name="nav_products">ఉత్పత్తి</string>
+    <string name="products">ఉత్పత్తి</string>
     <string name="nav_profile">ప్రొఫైల్</string>
     <string name="nav_whatsapp_icon">వాట్స్ యాప్ ఐకాన్</string>
     <string name="appSharedPref">solidindia</string>

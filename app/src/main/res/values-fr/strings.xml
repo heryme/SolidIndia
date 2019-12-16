@@ -3,6 +3,7 @@
     <string name="nav_home">DOMICILE</string>
     <string name="nav_products">DES PRODUITS</string>
     <string name="nav_profile">PROFIL</string>
+    <string name="products">Des Produits</string>
     <string name="nav_whatsapp_icon">ICÔNE WHATSAPP</string>
     <string name="appSharedPref">solidindia</string>
     <string name="dismiss">Dismiss</string>

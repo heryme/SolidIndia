@@ -2,6 +2,7 @@
     <string name="app_name">SolidIndia</string>
     <string name="nav_home">CASA</string>
     <string name="nav_products">Productos</string>
+    <string name="products">Productos</string>
     <string name="nav_profile">PERFIL</string>
     <string name="nav_whatsapp_icon">ICONO DE WHATSAPP</string>
     <string name="appSharedPref">solidindia</string>

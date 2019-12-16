@@ -30,20 +30,43 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
+
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/ivSubImage"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
+                android:id="@+id/ivSubImage1"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_launcher"
+                android:visibility="gone"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_90sdp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:strokeColor="@color/grey"
+                app:strokeWidth="1dp">
+
+                <ImageView
+                    android:id="@+id/ivSubImage"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:scaleType="fitXY"
+                    android:visibility="visible"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </com.google.android.material.card.MaterialCardView>
+
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -137,7 +160,8 @@
             android:text="Asphalt Batch Mix Plant"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvHighlight"
@@ -176,23 +200,23 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:visibility="gone"
             android:layout_marginEnd="@dimen/_10sdp"
-            tools:text="Low Maintaince Cost"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="Low Maintaince Cost" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvHighlightEsure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_35sdp"
-            android:visibility="gone"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:text="Ensures High Quality Asphanlt Mix"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSpecification"
@@ -347,6 +371,7 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height=".5dp"
@@ -358,7 +383,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvProductDetails"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>

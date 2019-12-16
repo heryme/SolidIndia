@@ -2,9 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-<ImageView
-    android:id="@+id/ivSilder"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/ivSilder1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:strokeColor="@color/grey"
+        app:strokeWidth="1dp">
+        <ImageView
+            android:id="@+id/ivSilder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

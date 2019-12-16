@@ -13,19 +13,45 @@
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_25sdp"
+        android:visibility="gone"
         android:scaleType="fitXY"
         android:src="@drawable/ic_home"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:strokeColor="@color/grey"
+        app:strokeWidth="1dp">
+
+        <ImageView
+            android:id="@+id/ivProduct1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_home"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
         android:text="@string/road"
         android:textColor="@color/black"
-        android:layout_marginStart="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_25sdp"
-        android:layout_marginTop="@dimen/_12sdp"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -34,10 +60,8 @@
         android:background="@color/grey" />
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProductMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_15sdp"/>
+        android:layout_height="match_parent" />
 </androidx.appcompat.widget.LinearLayoutCompat>

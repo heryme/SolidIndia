@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,9 @@ import com.solidindia.activity.MainActivity
 import com.utils.isNetWork
 
 
+
+
+
 /**
  * A simple [Fragment] subclass.
  */
@@ -29,6 +33,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
     private var rootView: View? = null
     private var searchView: SearchView? = null
     private lateinit var rvProduct: RecyclerView
+    private lateinit var tvProductTitle: TextView
     private lateinit var productMainAdapter: ProductMainAdapter
     private var productList: ArrayList<ProductResponse.Data>? = null
 
@@ -44,6 +49,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_product, container, false)
         initIDs(rootView!!)
+        initComponent()
         var langTyape = sessionManager["type",""]
         Log.e(TAG,"LanType-->$langTyape")
         callProductListAPI(langTyape)
@@ -51,8 +57,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
     }
 
     override fun initComponent() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+      }
 
     override fun initToolbar() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -68,6 +73,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
 
     override fun initIDs(rootView: View) {
         rvProduct = rootView.findViewById(R.id.rvProduct)
+        tvProductTitle = rootView.findViewById(R.id.tvProductTitle)
     }
 
     private fun setAdpater() {

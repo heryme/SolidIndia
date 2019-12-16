@@ -3,6 +3,7 @@
     <string name="nav_home">家</string>
     <string name="nav_products">產品展示</string>
     <string name="nav_profile">輪廓</string>
+    <string name="products">輪廓</string>
     <string name="nav_whatsapp_icon">什麼事</string>
     <string name="appSharedPref">solidindia</string>
     <string name="dismiss">Dismiss</string>
