@@ -3,6 +3,7 @@ package com.adapter
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import android.widget.Filterable
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.AppController
+import com.frament.HomeFragment
 import com.model.ProductResponse
 import com.solidindia.R
 import kotlinx.android.synthetic.main.row_main_product.view.*
@@ -52,6 +54,7 @@ class ProductMainAdapter(var context: Context,
         @SuppressLint("SetTextI18n")
         fun bind(position: Int, productList: List<ProductResponse.Data>) {
             itemView.tvProductNameMain?.text = productFilterdList[position].category.categoryName
+            Log.e("TAG","Temp List Size--->${HomeFragment.tempList.size}")
             setAdpater(itemView.rvSubProduct,productFilterdList[position].category.product as ArrayList<ProductResponse.Data.Category.Product>,position)
             appcontroller.setMainAdapterPost(position)
 

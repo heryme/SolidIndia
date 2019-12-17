@@ -34,6 +34,11 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     private var productList: ArrayList<ProductResponse.Data>? = null
 
 
+    companion object{
+        lateinit var tempList:ArrayList<ProductResponse.Data.Category.Product>
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true);
@@ -46,16 +51,17 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_home, container, false)
         initIDs(rootView!!)
+        initComponent()
         var langTyape = sessionManager["type", "en"]
         Log.e(TAG, "LanType-->$langTyape")
 
         getLanguageType(activity!!,langTyape)
-        //callProductListAPI(langTyape)
+        callProductListAPI(langTyape)
         return rootView
     }
 
     override fun initComponent() {
-
+        tempList = ArrayList()
     }
 
     override fun initToolbar() {

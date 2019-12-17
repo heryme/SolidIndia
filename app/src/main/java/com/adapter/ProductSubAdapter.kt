@@ -3,6 +3,7 @@ package com.adapter
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.AppController
 import com.bumptech.glide.Glide
+import com.frament.HomeFragment.Companion.tempList
 import com.frament.ProductDetailsFragment
 import com.model.ProductResponse
 import com.solidindia.R
@@ -26,6 +28,7 @@ class ProductSubAdapter(
     var pos: Int,
     var isShowAllListItem: Boolean
 ) :
+
 
     RecyclerView.Adapter<ProductSubAdapter.SubViewHolder>() {
     lateinit var appcontroller: AppController
@@ -52,6 +55,8 @@ class ProductSubAdapter(
         @SuppressLint("SetTextI18n")
         fun bind(position: Int, productList: ArrayList<ProductResponse.Data.Category.Product>) {
             appcontroller = activity.application as AppController
+            tempList.add(productList[position])
+            Log.e("TAG","Temp List Size--->${tempList.size}")
 
             if (isShowAllListItem) {
                 itemView.visibility = View.VISIBLE

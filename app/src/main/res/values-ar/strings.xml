@@ -65,5 +65,12 @@ Dodia هي خريجة التجارة حاصلة على درجة التخرج
     <string name="since">منذ عام 1972</string>
     <string name="india">الهند</string>
     <string name="back">الى الخلف</string>
+    <string name="en">EN</string>
+    <string name="ar">AR</string>
+    <string name="es">ES</string>
+    <string name="zh">ZH</string>
+    <string name="fr">FR</string>
+    <string name="ta">TA</string>
+    <string name="te">TE</string>
 
 </resources>

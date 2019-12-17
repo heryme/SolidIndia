@@ -63,5 +63,12 @@ to the customers for simpler and easier tasks.</string>
     <string name="since">SINCE 1972</string>
     <string name="india">INDIA</string>
     <string name="back">BACK</string>
+    <string name="en">EN</string>
+    <string name="ar">AR</string>
+    <string name="es">ES</string>
+    <string name="zh">ZH</string>
+    <string name="fr">FR</string>
+    <string name="ta">TA</string>
+    <string name="te">TE</string>
 
 </resources>
