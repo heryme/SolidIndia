@@ -15,7 +15,7 @@
         android:layout_marginEnd="@dimen/_15sdp"
         android:padding="@dimen/_5sdp"
         android:text="@string/products"
-        android:textSize="@dimen/font_normal"
+        android:textSize="@dimen/font_extra_large"
         android:inputType="textCapSentences"
         android:textColor="@color/black"
         android:textStyle="bold" />

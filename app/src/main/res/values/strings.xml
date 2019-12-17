@@ -58,6 +58,10 @@ to the customers for simpler and easier tasks.</string>
     <string name="founder_of_solid" translatable="false">Founder of Solid</string>
     <string name="global" translatable="false">Global Installations</string>
     <string name="download" translatable="false">Download</string>
-
     <string name="road">ROAD CONSTRUCTION EUQIPMENT</string>
+
+    <string name="since">SINCE 1972</string>
+    <string name="india">INDIA</string>
+    <string name="back">BACK</string>
+
 </resources>

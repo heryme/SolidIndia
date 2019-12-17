@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
+        app:cardElevation="0dp"
         app:strokeColor="@color/grey"
         app:strokeWidth="1dp">
         <ImageView

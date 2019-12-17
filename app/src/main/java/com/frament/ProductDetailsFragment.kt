@@ -1,29 +1,23 @@
 package com.frament
 
 
-import android.graphics.drawable.Drawable
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.ImageView
-import androidx.fragment.app.Fragment
 import android.widget.TextView
-import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
-import com.solidindia.activity.MainActivity
 import com.adapter.MyViewPagerAdapter
+import com.adapter.ProductSubAdapter
 import com.bumptech.glide.Glide
 import com.model.ProductResponse
 import com.solidindia.R
-import kotlinx.android.synthetic.main.row_sub_product.view.*
-import android.content.Intent
-import android.net.Uri
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.adapter.ProductMainAdapter
-import com.adapter.ProductSubAdapter
-import java.lang.StringBuilder
+import com.solidindia.activity.MainActivity
 
 
 class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
@@ -89,6 +83,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     }
 
     override fun initData() {
+        var capacity = getString(R.string.capacity)
         if (productData?.productImage?.size!! > 0) {
             Glide.with(context)
                 .load(productData?.productImage?.get(0)?.path)
@@ -97,7 +92,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         }
 
         tvProductName.text = productData?.productName
-        tvProductSubName.text = productData?.capacity
+        tvProductSubName.text = capacity + " "  +productData?.capacity
         tvHighlightCapacityValue.text = productData?.capacity
         tvHighlightDrumDiaValue.text = productData?.drumDiameter
         tvHighlightHotMixValue.text = productData?.storage
