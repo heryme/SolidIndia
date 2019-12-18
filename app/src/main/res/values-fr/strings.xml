@@ -2,7 +2,7 @@
     <string name="app_name">SolidIndia</string>
     <string name="nav_home">DOMICILE</string>
     <string name="nav_products">DES PRODUITS</string>
-    <string name="nav_profile">PROFIL</string>
+    <string name="nav_profile">À PROPOS DE NOUS</string>
     <string name="products">Des Produits</string>
     <string name="nav_whatsapp_icon">ICÔNE WHATSAPP</string>
     <string name="appSharedPref">solidindia</string>
@@ -71,4 +71,7 @@ aux clients pour des tâches plus simples et plus faciles.</string>
     <string name="fr">FR</string>
     <string name="ta">TA</string>
     <string name="te">TE</string>
+    <string name="follow_us_on">Suivez-nous sur</string>
+    <string name="more_product">Plus de produit</string>
+
 </resources>

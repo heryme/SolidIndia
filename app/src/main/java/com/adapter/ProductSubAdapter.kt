@@ -7,18 +7,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.AppController
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.frament.HomeFragment.Companion.tempList
 import com.frament.ProductDetailsFragment
 import com.model.ProductResponse
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
-import kotlinx.android.synthetic.main.row_main_product.view.*
 import kotlinx.android.synthetic.main.row_sub_product.view.*
-
 
 
 class ProductSubAdapter(
@@ -55,13 +53,17 @@ class ProductSubAdapter(
         @SuppressLint("SetTextI18n")
         fun bind(position: Int, productList: ArrayList<ProductResponse.Data.Category.Product>) {
             appcontroller = activity.application as AppController
-            tempList.add(productList[position])
-            Log.e("TAG","Temp List Size--->${tempList.size}")
+
+            if (!tempList.contains(productList[position])) {
+                tempList.add(productList[position])
+                Log.e("TAG", "Temp List Size--->${tempList.size}")
+            }
 
             if (isShowAllListItem) {
                 itemView.visibility = View.VISIBLE
                 val params = RecyclerView.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT)
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+                )
                 params.setMargins(35, 0, 35, 0);
 
                 itemView.setLayoutParams(params)
@@ -73,8 +75,9 @@ class ProductSubAdapter(
                 }
             }
 
+            var capacity = context.getString(R.string.capacity)
             itemView.tvProductName?.text = productList[position].productName
-            itemView.tvProductSubName?.text = productList[position].capacity
+            itemView.tvProductSubName?.text = capacity + " " + productList[position].capacity
             if (productList[position].productImage.size > 0) {
                 Glide.with(context)
                     .load(productList[position].productImage[0].path)

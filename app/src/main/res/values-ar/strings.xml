@@ -3,7 +3,7 @@
     <string name="nav_home">الصفحة الرئيسية</string>
     <string name="nav_products">منتجات</string>
     <string name="products">منتجات</string>
-    <string name="nav_profile">الملف الشخصي</string>
+    <string name="nav_profile">معلومات عنا</string>
     <string name="nav_whatsapp_icon">أيقونة واتساب</string>
     <string name="appSharedPref">solidindia</string>
     <string name="dismiss">Dismiss</string>
@@ -72,5 +72,6 @@ Dodia هي خريجة التجارة حاصلة على درجة التخرج
     <string name="fr">FR</string>
     <string name="ta">TA</string>
     <string name="te">TE</string>
-
+    <string name="follow_us_on">اتبعنا</string>
+    <string name="more_product">المزيد من المنتجات</string>
 </resources>

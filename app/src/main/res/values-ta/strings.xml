@@ -2,7 +2,7 @@
     <string name="app_name">SolidIndia</string>
     <string name="nav_home">முகப்பு</string>
     <string name="nav_products">தயாரிப்புகள்</string>
-    <string name="nav_profile">பின்னணிக்</string>
+    <string name="nav_profile">எங்களை பற்றி</string>
     <string name="products">பின்னணிக்</string>
     <string name="nav_whatsapp_icon">ஐகான்</string>
     <string name="appSharedPref">solidindia</string>
@@ -71,5 +71,8 @@
     <string name="fr">FR</string>
     <string name="ta">TA</string>
     <string name="te">TE</string>
+    <string name="follow_us_on">எங்களைப் பின்தொடரவும்</string>
+    <string name="more_product">மேலும் தயாரிப்பு</string>
+
 
 </resources>

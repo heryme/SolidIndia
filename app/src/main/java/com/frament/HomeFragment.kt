@@ -7,7 +7,9 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.PopupMenu
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +26,17 @@ import com.utils.getLanguageType
 import com.utils.isNetWork
 
 
-class HomeFragment : BaseFrament(), ApiResponseInterface {
+class HomeFragment : BaseFrament(), ApiResponseInterface,PopupMenu.OnMenuItemClickListener {
+    override fun onMenuItemClick(item: MenuItem?): Boolean {
+        Toast.makeText(activity!!, "Selected Item: " +item?.getTitle(), Toast.LENGTH_SHORT).show();
+        when (item?.getItemId()) {
+            R.id.menuEng ->
+                // do your code
+                return true
+            else -> return false
+        }
+    }
+
     var TAG: String = javaClass.simpleName
 
     private var rootView: View? = null
@@ -51,7 +63,9 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     ): View? {
         rootView = inflater.inflate(R.layout.fragment_home, container, false)
         initIDs(rootView!!)
+
         initComponent()
+        initListeners()
         var langTyape = sessionManager["type", "en"]
         Log.e(TAG, "LanType-->$langTyape")
 
@@ -69,7 +83,6 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     }
 
     override fun initListeners() {
-
     }
 
     override fun initData() {
@@ -78,8 +91,9 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
     override fun initIDs(rootView: View) {
         rvProductMain = rootView.findViewById(R.id.rvProductMain)
-
     }
+
+
 
     private fun setAdpater() {
         ///val productList: ArrayList<ProductResponse.Data.Category> = ArrayList()
@@ -128,11 +142,8 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
 
+        val id = item.itemId
 
         return if (id == R.id.action_search) {
             true
@@ -236,6 +247,8 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         }
 
     }
+
+
 
   /*  fun setLocale(localeString: String) {
         val res = resources

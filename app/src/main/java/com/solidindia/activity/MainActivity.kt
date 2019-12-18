@@ -2,7 +2,6 @@ package com.solidindia.activity
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.Window
@@ -11,24 +10,48 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.frament.*
+import com.frament.HomeFragment
+import com.frament.ProductFragment
+import com.frament.ProfileFragment
+import com.frament.WhatsAppFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.solidindia.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
+import android.R.attr.fragment
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.R.attr.name
+import android.R.attr.fragment
+
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.R.attr.name
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var ivbarToolbar:ImageView
 
-    private val TAG:String = javaClass.simpleName
+    private val TAG: String = javaClass.simpleName
+
+    lateinit var ivbarToolbar: ImageView
+
+    companion object{
+         var ivMoreData: ImageView? = null
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
+        setListner()
         loadFragment(HomeFragment(), false)
     }
+
+    fun setListner() {
+
+    }
+
 
 
 
@@ -51,7 +74,6 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.addToBackStack(fragment.javaClass.getSimpleName())
         fragmentTransaction.commit()
 
-
     }
 
     private fun initView() {
@@ -71,7 +93,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-     fun fragmentHandling() {
+    fun fragmentHandling() {
         //Fragment Remove From The Stack
         supportFragmentManager.popBackStack()
     }
@@ -101,8 +123,6 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         }
-
-
 
 
     /**
