@@ -54,6 +54,7 @@
         app:itemBackground="@color/white"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/black"
+        android:theme="@style/Widget.BottomNavigationView"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/navigation" />
 

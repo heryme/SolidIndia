@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.model.ProductResponse
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
+import com.utils.WEB_URL
 
 
 class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
@@ -36,7 +37,10 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private lateinit var tvHighlightHotMixValue: TextView
     private lateinit var tvHighlightCompect: TextView
     private lateinit var rvProductDetails: RecyclerView
-    private var productSubdapter: ProductSubAdapter?=null
+    private lateinit var tvDownload: TextView
+    private lateinit var ivFacebook: ImageView
+    private lateinit var ivYoutube: ImageView
+    private var productSubdapter: ProductSubAdapter? = null
     private var productSubList: ArrayList<ProductResponse.Data.Category.Product>? = null
 
     private var myViewPagerAdapter: MyViewPagerAdapter? = null
@@ -80,6 +84,9 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvBack.setOnClickListener(this)
         btnShare.setOnClickListener(this)
         btnPrice.setOnClickListener(this)
+        tvDownload.setOnClickListener(this)
+        ivYoutube.setOnClickListener(this)
+        ivFacebook.setOnClickListener(this)
     }
 
     override fun initData() {
@@ -92,7 +99,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         }
 
         tvProductName.text = productData?.productName
-        tvProductSubName.text = capacity + " "  +productData?.capacity
+        tvProductSubName.text = capacity + " " + productData?.capacity
         tvHighlightCapacityValue.text = productData?.capacity
         tvHighlightDrumDiaValue.text = productData?.drumDiameter
         tvHighlightHotMixValue.text = productData?.storage
@@ -112,6 +119,9 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvHighlightHotMixValue = rootView.findViewById(R.id.tvHighlightHotMixValue)
         tvHighlightCompect = rootView.findViewById(R.id.tvHighlightCompect)
         rvProductDetails = rootView.findViewById(R.id.rvProductDetails)
+        tvDownload = rootView.findViewById(R.id.tvDownload)
+        ivFacebook = rootView.findViewById(R.id.ivFacebook)
+        ivYoutube = rootView.findViewById(R.id.ivYoutube)
 
     }
 
@@ -120,10 +130,19 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
             tvBack -> {
                 (context as MainActivity).fragmentHandling()
             }
-            btnShare->{
+            btnShare -> {
                 shareIntent()
             }
-            btnPrice->{
+            tvDownload -> {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(WEB_URL))
+                startActivity(browserIntent)
+            }
+            ivFacebook -> {
+
+            }
+            ivYoutube -> {
+            }
+            btnPrice -> {
                 val phoneNumberWithCountryCode = "+919624777773"
                 val message = "Solid India"
 
@@ -149,12 +168,18 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         vpSlider.setAdapter(myViewPagerAdapter);
         vpSlider.addOnPageChangeListener(viewPagerPageChangeListener);
 
-        Log.e(TAG,"getMainAdapterPost->" + appcontroller.getMainAdapterPost() )
-        Log.e(TAG,"getSubAdapterPost->" + appcontroller.getSubAdapterPost() )
+        Log.e(TAG, "getMainAdapterPost->" + appcontroller.getMainAdapterPost())
+        Log.e(TAG, "getSubAdapterPost->" + appcontroller.getSubAdapterPost())
 
         productSubList = ArrayList()
         productSubList?.addAll(appcontroller.getDataList()[appcontroller.getMainAdapterPost()].category.product)
-        productSubdapter = ProductSubAdapter(activity!!, activity!!, productSubList!!,appcontroller.getMainAdapterPost(),false)
+        productSubdapter = ProductSubAdapter(
+            activity!!,
+            activity!!,
+            productSubList!!,
+            appcontroller.getMainAdapterPost(),
+            false
+        )
         rvProductDetails.adapter = productSubdapter
         rvProductDetails.layoutManager = LinearLayoutManager(activity)
 
@@ -174,20 +199,17 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         }
 
     private fun shareIntent() {
-
-
-
         val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, R.string.app_name)
         sharingIntent.putExtra(
-            android.content.Intent.EXTRA_TEXT,shareData()
+            android.content.Intent.EXTRA_TEXT, shareData()
         )
         startActivity(Intent.createChooser(sharingIntent, "Share app via"))
     }
 
 
-    private fun shareData():String{
+    private fun shareData(): String {
         var stringBuilder = StringBuilder()
         stringBuilder.append(productData?.productName)
         stringBuilder.append(" ")

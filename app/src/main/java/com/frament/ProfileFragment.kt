@@ -1,5 +1,7 @@
 package com.frament
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.solidindia.R
+import com.utils.PDF_URL
 import com.utils.getLanguageType
 
 
@@ -42,6 +45,8 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
         when (view) {
             btnDownload -> {
 
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(PDF_URL))
+                startActivity(browserIntent)
             }
         }
     }

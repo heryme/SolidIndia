@@ -12,27 +12,27 @@
 
     <item
         android:id="@+id/menuEng"
-        android:title="English" />
+        android:title="@string/en" />
 
     <item
         android:id="@+id/menuArabian"
-        android:title="Arabian" />
+        android:title="@string/ar" />
 
     <item
         android:id="@+id/menuSpanish"
-        android:title="Spanish" />
+        android:title="@string/es" />
     <item
         android:id="@+id/menuChinese"
-        android:title="Chinese" />
+        android:title="@string/zh" />
     <item
         android:id="@+id/menuFrench"
-        android:title="French" />
+        android:title="@string/fr" />
     <item
         android:id="@+id/menuTamil"
-        android:title="Tamil" />
+        android:title="@string/ta" />
     <item
         android:id="@+id/menuTelugu"
-        android:title="Telugu" />
+        android:title="@string/te" />
 
 
 

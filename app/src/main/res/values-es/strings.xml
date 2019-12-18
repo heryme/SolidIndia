@@ -3,7 +3,7 @@
     <string name="nav_home">CASA</string>
     <string name="nav_products">Productos</string>
     <string name="products">Productos</string>
-    <string name="nav_profile">PERFIL</string>
+    <string name="nav_profile">SOBRE NOSOTROS</string>
     <string name="nav_whatsapp_icon">ICONO DE WHATSAPP</string>
     <string name="appSharedPref">solidindia</string>
     <string name="dismiss">Dismiss</string>
@@ -66,5 +66,14 @@ a los clientes para tareas más simples y fáciles.</string>
     <string name="since">DESDE 1972</string>
     <string name="india">INDIO</string>
     <string name="back">espalda</string>
+    <string name="en">EN</string>
+    <string name="ar">AR</string>
+    <string name="es">ES</string>
+    <string name="zh">ZH</string>
+    <string name="fr">FR</string>
+    <string name="ta">TA</string>
+    <string name="te">TE</string>
+    <string name="follow_us_on">Siga con nosotros</string>
+    <string name="more_product">Más producto</string>
 
 </resources>

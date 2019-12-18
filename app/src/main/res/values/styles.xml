@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+
     </style>
 
 
@@ -27,4 +29,12 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
     </style>
+
+
+    <!-- Bottom Navigation -->
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="android:gravity">center</item>
+    </style>
+
+
 </resources>
