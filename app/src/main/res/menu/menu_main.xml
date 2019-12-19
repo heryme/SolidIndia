@@ -11,6 +11,15 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
+        android:id="@+id/overflow"
+        android:icon="@drawable/abc_ic_menu_overflow_material"
+        android:title="more"
+        android:orderInCategory="100"
+        app:icon="@drawable/abc_ic_menu_overflow_material"
+        app:showAsAction="always"
+        tools:ignore="PrivateResource" />
+
+   <!-- <item
         android:id="@+id/menuEng"
         android:title="@string/en" />
 
@@ -32,7 +41,7 @@
         android:title="@string/ta" />
     <item
         android:id="@+id/menuTelugu"
-        android:title="@string/te" />
+        android:title="@string/te" />-->
 
 
 

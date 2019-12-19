@@ -31,6 +31,12 @@
     </style>
 
 
+    <style name="Widget.MPM.Menu.CustomPadding">
+        <item name="mpm_paddingBottom">16dp</item>
+        <item name="mpm_paddingStart">16dp</item>
+        <item name="mpm_paddingEnd">16dp</item>
+        <item name="mpm_paddingTop">16dp</item>
+    </style>
 
 
 </resources>
