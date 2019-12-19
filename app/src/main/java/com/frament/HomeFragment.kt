@@ -23,6 +23,7 @@ import com.solidindia.R
 import com.solidindia.activity.MainActivity
 import com.utils.getLanguageType
 import com.utils.isNetWork
+import kotlin.text.Typography.section
 
 
 class HomeFragment : BaseFrament(), ApiResponseInterface {
@@ -58,7 +59,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         Log.e(TAG, "LanType-->$langTyape")
 
         getLanguageType(activity!!, langTyape)
-        // callProductListAPI(langTyape)
+        callProductListAPI(langTyape)
 
         return rootView
     }
