@@ -11,12 +11,18 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
-        android:id="@+id/overflow"
-        android:icon="@drawable/abc_ic_menu_overflow_material"
-        android:title="more"
+        android:id="@+id/filter"
+        android:title="FILTER"
         android:orderInCategory="100"
-        app:icon="@drawable/abc_ic_menu_overflow_material"
-        app:showAsAction="always"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/overflow"
+        android:icon="@drawable/ic_more"
+        android:title="more"
+        android:orderInCategory="101"
+        app:icon="@drawable/ic_more"
+        app:showAsAction="ifRoom"
         tools:ignore="PrivateResource" />
 
    <!-- <item

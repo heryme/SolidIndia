@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:actionButtonStyle">@style/ActionButton</item>
 
     </style>
 
@@ -14,6 +14,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
     </style>
 
     <!-- Full Screen For Splash -->
@@ -31,6 +32,7 @@
     </style>
 
 
+    <!--  Fix Padding Menu item list -->
     <style name="Widget.MPM.Menu.CustomPadding">
         <item name="mpm_paddingBottom">16dp</item>
         <item name="mpm_paddingStart">16dp</item>
@@ -38,5 +40,11 @@
         <item name="mpm_paddingTop">16dp</item>
     </style>
 
+    <!--  Reduce Space between toolbar menu icons -->
+    <style name="ActionButton" parent="@android:style/Widget.ActionButton">
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">3dp</item>
+        <item name="android:minWidth">2dp</item>
+    </style>
 
 </resources>

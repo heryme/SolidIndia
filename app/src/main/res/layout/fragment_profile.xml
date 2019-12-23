@@ -61,7 +61,7 @@
             android:gravity="center|start"
             android:text="@string/founded"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/font_normal"
             app:setTypeFace="@string/font_halvetica" />
 
         <com.utils.MyCustomTextView
@@ -89,7 +89,7 @@
             android:gravity="center|start"
             android:text="@string/chairman"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/font_normal"
             app:setTypeFace="@string/font_halvetica"/>
 
         <com.utils.MyCustomTextView

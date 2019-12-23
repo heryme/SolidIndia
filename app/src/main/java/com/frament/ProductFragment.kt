@@ -25,6 +25,9 @@ import com.utils.isNetWork
 
 
 
+
+
+
 /**
  * A simple [Fragment] subclass.
  */
@@ -127,6 +130,10 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
         super.onCreateOptionsMenu(menu, inflater)
+        val overflowMenu = menu.findItem(R.id.overflow)
+        val lan = menu.findItem(R.id.filter)
+        overflowMenu.setVisible(false)
+        lan.setVisible(false)
 
         // Associate searchable configuration with the SearchView
         val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager

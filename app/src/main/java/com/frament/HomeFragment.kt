@@ -3,8 +3,11 @@ package com.frament
 
 import android.app.SearchManager
 import android.content.Context
+import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
 import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
@@ -21,9 +24,9 @@ import com.rest.ApiResponseInterface
 import com.rest.ApiResponseManager
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
+import com.utils.CustomTypefaceSpan
 import com.utils.getLanguageType
 import com.utils.isNetWork
-import kotlin.text.Typography.section
 
 
 class HomeFragment : BaseFrament(), ApiResponseInterface {
@@ -33,6 +36,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     private lateinit var rvProductMain: RecyclerView
     private var productMainAdapter: ProductMainAdapter? = null
     private var productList: ArrayList<ProductResponse.Data>? = null
+    private var menu: Menu? = null
 
 
     companion object {
@@ -59,8 +63,10 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         var langTyape = sessionManager["type", "en"]
         Log.e(TAG, "LanType-->$langTyape")
 
+
         getLanguageType(activity!!, langTyape)
-        callProductListAPI(langTyape)
+        //callProductListAPI(langTyape)
+
 
         return rootView
     }
@@ -85,6 +91,25 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         rvProductMain = rootView.findViewById(R.id.rvProductMain)
     }
 
+    private fun selectedMenuLan(selectedType:String) {
+        val menuItem = menu?.findItem(R.id.filter)
+        if(selectedType.equals("en")) {
+            menuItem?.setTitle("EN")
+        }else if (selectedType.equals("ar")) {
+            menuItem?.setTitle("AR")
+        }else if (selectedType.equals("sp")) {
+            menuItem?.setTitle("ES")
+        }else if (selectedType.equals("ch")) {
+            menuItem?.setTitle("ZH")
+        }else if (selectedType.equals("fr")) {
+            menuItem?.setTitle("FR")
+        }else if (selectedType.equals("tm")) {
+            menuItem?.setTitle("TA")
+        }else if (selectedType.equals("te")) {
+            menuItem?.setTitle("TE")
+        }
+    }
+
 
     private fun setAdpater() {
         ///val productList: ArrayList<ProductResponse.Data.Category> = ArrayList()
@@ -98,6 +123,14 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_main, menu)
         super.onCreateOptionsMenu(menu, inflater)
+        this.menu = menu;
+        var langTyape = sessionManager["type", "en"]
+        selectedMenuLan(langTyape)
+
+        for (i in 0 until menu.size()) {
+            val mi = menu.getItem(i)
+            applyFontToMenuItem(mi)
+        }
 
         // Associate searchable configuration with the SearchView
         val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
@@ -130,7 +163,23 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                 (context as MainActivity).ivbarToolbar.visibility = View.GONE
             }
         })
+
+
     }
+
+    private fun applyFontToMenuItem(mi: MenuItem) {
+        val font = Typeface.createFromAsset(activity!!.getAssets(), "Helvetica.ttf")
+        val mNewTitle = SpannableString(mi.title)
+        mNewTitle.setSpan(
+            CustomTypefaceSpan("", font),
+            0,
+            mNewTitle.length,
+            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+        )
+        mi.title = mNewTitle
+    }
+
+
 
 
     fun onCustomPaddingTextViewClicked(view: View) {
@@ -334,6 +383,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
             }
 
         }
+
 
 
         /*  fun setLocale(localeString: String) {
