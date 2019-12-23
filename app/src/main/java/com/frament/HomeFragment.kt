@@ -65,7 +65,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
 
         getLanguageType(activity!!, langTyape)
-        //callProductListAPI(langTyape)
+        callProductListAPI(langTyape)
 
 
         return rootView

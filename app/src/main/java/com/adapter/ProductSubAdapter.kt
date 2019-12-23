@@ -16,6 +16,7 @@ import com.frament.ProductDetailsFragment
 import com.model.ProductResponse
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
+import com.utils.loadImage
 import kotlinx.android.synthetic.main.row_sub_product.view.*
 
 
@@ -79,10 +80,15 @@ class ProductSubAdapter(
             itemView.tvProductName?.text = productList[position].productName
             itemView.tvProductSubName?.text = capacity + " " + productList[position].capacity
             if (productList[position].productImage.size > 0) {
-                Glide.with(context)
+                loadImage(productList[position].productImage[0].path,
+                    appcontroller.getAppContext()!!, itemView.ivSubImage,
+                    R.mipmap.ic_launcher)
+
+
+                /*Glide.with(context)
                     .load(productList[position].productImage[0].path)
                     .error(R.mipmap.ic_launcher)
-                    .into(itemView.ivSubImage)
+                    .into(itemView.ivSubImage)*/
             }
 
 

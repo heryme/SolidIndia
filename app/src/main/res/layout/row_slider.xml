@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
+    android:padding="@dimen/_5sdp"
     android:orientation="vertical">
 
     <ImageView
@@ -17,10 +18,11 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
         app:strokeColor="@color/imageBorderColor"
-        app:strokeWidth="2dp">
-        <ImageView
+        app:strokeWidth="0dp">
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivSilder"
             android:layout_width="match_parent"
+            android:scaleType="fitEnd"
             android:layout_height="match_parent"/>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

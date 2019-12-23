@@ -6,9 +6,14 @@ import android.net.ConnectivityManager
 import android.os.Build
 import android.os.LocaleList
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDialog
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.GlideDrawable
+import com.bumptech.glide.request.RequestListener
 import java.util.*
 
 private var toast: Toast? = null
@@ -95,4 +100,31 @@ fun getLanguageType(context: Context,type: String){
     }else if (type.equals("te")) {
         setLocale(context,"te")
     }
+}
+
+fun loadImage(imagePath: String, context: Context, targetImageView: ImageView,errorImage: Int) {
+//    Glide.with(context).load(imagePath)
+//            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+//            .skipMemoryCache(false)
+//            .error(errorImage)
+//            .into(targetImageView)
+
+    Glide.with(context)
+        .load(imagePath)
+        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+        .skipMemoryCache(false)
+        .listener(object : RequestListener<String, GlideDrawable> {
+            override fun onResourceReady(resource: GlideDrawable?, model: String?, target: com.bumptech.glide.request.target.Target<GlideDrawable>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
+                targetImageView.scaleType = ImageView.ScaleType.FIT_XY
+                return false
+            }
+
+            override fun onException(e: java.lang.Exception?, model: String?, target: com.bumptech.glide.request.target.Target<GlideDrawable>?, isFirstResource: Boolean): Boolean {
+                targetImageView.scaleType = ImageView.ScaleType.CENTER
+                targetImageView.setImageResource(errorImage)
+                return false
+            }
+
+        })
+        .error(errorImage).into(targetImageView)
 }

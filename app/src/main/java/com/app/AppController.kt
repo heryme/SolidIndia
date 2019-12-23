@@ -10,9 +10,18 @@ class AppController: Application()  {
     private var mainAdapterSelectionPosition:Int = 0
     private var subbAdapterSelectionPosition:Int = 0
 
+    companion object {
+        @get:Synchronized
+        var instance: AppController? = null
+    }
+
     override fun onCreate() {
         super.onCreate()
+        instance = this
+    }
 
+    fun getAppContext(): AppController? {
+        return instance
     }
 
     fun getProductData():ProductResponse.Data.Category.Product{

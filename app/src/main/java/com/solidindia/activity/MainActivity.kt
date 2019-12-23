@@ -27,15 +27,17 @@ import android.R.attr.fragment
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.R.attr.name
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 
 
-class MainActivity : AppCompatActivity(),View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val TAG: String = javaClass.simpleName
     lateinit var llBackMain: LinearLayoutCompat
     lateinit var ivbarToolbar: ImageView
-    companion object{
+
+    companion object {
         var ivMoreData: ImageView? = null
     }
 
@@ -53,8 +55,8 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        when(view) {
-            llBackMain->{
+        when (view) {
+            llBackMain -> {
                 fragmentHandling()
             }
         }
@@ -103,6 +105,20 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     fun fragmentHandling() {
         //Fragment Remove From The Stack
         supportFragmentManager.popBackStack()
+        val frag = supportFragmentManager.findFragmentByTag(
+            supportFragmentManager.fragments.get(supportFragmentManager.backStackEntryCount - 1).tag
+        )
+        Log.e(TAG, "Frament name-->" + frag)
+        if (frag is HomeFragment) {
+            llBackMain.visibility = View.VISIBLE
+            ivbarToolbar.visibility = View.GONE
+        } else if (frag is ProductFragment) {
+            llBackMain.visibility = View.GONE
+            ivbarToolbar.visibility = View.VISIBLE
+        } else {
+            ivbarToolbar.visibility = View.VISIBLE
+            llBackMain.visibility = View.GONE
+        }
     }
 
     private val mOnNavigationItemSelectedListener =
