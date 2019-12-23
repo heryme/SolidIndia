@@ -23,7 +23,7 @@
     <string name="toast_try_after_sometimes">Algo salió mal, por favor intente después a veces ...</string>
     <string name="toast_something_wrong">Algo salió mal. Por favor, vuelva a intentarlo..</string>
     <string name="todo">todo</string>
-    <string name="photos_and_videos">Fotos y videos</string>
+    <string name="photos_and_videos">Fotos</string>
     <string name="highlight">REALCE</string>
     <string name="specification">ESPECIFICACIÓN</string>
     <string name="capacity">Capacidad</string>
@@ -75,4 +75,5 @@ a los clientes para tareas más simples y fáciles.</string>
     <string name="te">TE</string>
     <string name="follow_us_on">Siga con nosotros</string>
     <string name="more_product">Más producto</string>
+    <string name="font_halvetica">Helvetica.ttf</string>
 </resources>

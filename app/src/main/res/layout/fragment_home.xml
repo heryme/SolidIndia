@@ -20,7 +20,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_25sdp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_home"
+            android:src="@drawable/ic_home_banner"
             android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,14 +41,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_home"
+                android:src="@drawable/ic_home_banner"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
         </com.google.android.material.card.MaterialCardView>
 
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_25sdp"
@@ -57,7 +57,7 @@
             android:text="@string/road"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold"/>
 
         <View
             android:layout_width="match_parent"

@@ -14,17 +14,20 @@
         android:orientation="vertical"
         android:paddingBottom="@dimen/_20sdp">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:id="@+id/tvBack"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_17sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:drawableLeft="@drawable/ic_back"
             android:text="@string/back"
+            android:gravity="center"
+            android:visibility="gone"
             android:textAllCaps="true"
-            android:textColor="#0000FF"
+            app:setTypeFace="@string/font_halvetica"
+            android:textColor="@color/roundedButtonColor"
             android:textSize="18dp" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -50,10 +53,10 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="@dimen/_90sdp"
                 android:layout_height="@dimen/_95sdp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/grey"
-                app:strokeWidth="0.5dp">
+                app:cardCornerRadius="15dp"
+                app:cardElevation="15dp"
+                app:strokeColor="@color/imageBorderColor"
+                app:strokeWidth="1dp">
 
                 <ImageView
                     android:id="@+id/ivSubImage"
@@ -73,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.utils.MyCustomTextView
                     android:id="@+id/tvProductName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,9 +85,9 @@
                     android:text="Asphalt Batch Mix Plant"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    app:setTypeFace="@string/font_halvetica_bold" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.utils.MyCustomTextView
                     android:id="@+id/tvProductSubName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -92,8 +95,9 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="Capacity 60-240 TPH"
+                    app:setTypeFace="@string/font_halvetica"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/capacityColor"
                     android:textSize="12dp" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -102,22 +106,26 @@
                     android:layout_marginStart="@dimen/_25sdp"
                     android:layout_marginTop="@dimen/_10sdp">
 
-                    <androidx.appcompat.widget.AppCompatButton
+                    <com.utils.MyCustomTextView
                         android:id="@+id/btnPrice"
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:background="@drawable/roundedbutton"
                         android:text="@string/price"
+                        android:gravity="center"
+                        app:setTypeFace="@string/font_halvetica_bold"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 
-                    <androidx.appcompat.widget.AppCompatButton
+                    <com.utils.MyCustomTextView
                         android:id="@+id/btnShare"
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_20sdp"
+                        android:gravity="center"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@drawable/roundedbutton"
                         android:text="@string/share"
+                        app:setTypeFace="@string/font_halvetica_bold"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
 
@@ -131,21 +139,21 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:background="@color/grey" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+        <com.utils.MyCustomTextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
+            app:setTypeFace="@string/font_halvetica_bold"
             android:text="@string/photos_and_videos"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="@color/photosColor"
+            android:textSize="18sp"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vpSlider"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_180sdp"
+            android:layout_height="@dimen/_120sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp" />
@@ -162,31 +170,34 @@
             android:textStyle="bold"
             android:visibility="gone" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:id="@+id/tvHighlight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:text="@string/highlight"
-            android:textAllCaps="true"
+            android:padding="@dimen/_5sdp"
+            android:textAllCaps="false"
+            app:setTypeFace="@string/font_halvetica_bold"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height=".5dp"
-            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@color/grey" />
+            android:background="@color/imageBorderColor" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvHighlightCompect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_35sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:text="Compact Modular Concept"
@@ -217,25 +228,27 @@
             android:textSize="12sp"
             android:visibility="gone" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:id="@+id/tvSpecification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_25sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:text="@string/specification"
+            app:setTypeFace="@string/font_halvetica_bold"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height=".5dp"
-            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@color/grey" />
+            android:background="@color/imageBorderColor" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -246,29 +259,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.utils.MyCustomTextView
                     android:id="@+id/tvHighlightCapacity"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_weight="1"
                     android:gravity="start"
                     android:text="@string/capacity"
+                    app:setTypeFace="@string/font_halvetica"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <com.utils.MyCustomTextView
                     android:id="@+id/tvHighlightCapacityValue"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_35sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_weight="1"
                     android:gravity="start"
                     android:text="60-120 TPH"
+                    app:setTypeFace="@string/font_halvetica"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -279,11 +291,13 @@
                 android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@color/grey" />
+                android:visibility="gone"
+                android:background="@color/imageBorderColor" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvHighlightDrumDia"
@@ -318,11 +332,13 @@
                 android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:visibility="gone"
                 android:background="@color/grey" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvHighlightHotMix"
@@ -353,86 +369,92 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height=".5dp"
+                android:layout_height="2dp"
                 android:layout_marginStart="@dimen/_25sdp"
+                android:visibility="gone"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:background="@color/grey" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:id="@+id/tvDownload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:text="@string/download"
             android:textColor="@color/black"
             android:textSize="18sp"
+            app:setTypeFace="@string/font_halvetica_bold"
             android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height=".5dp"
+            android:layout_height="2dp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@color/grey" />
 
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:src="@drawable/ic_pdf"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+
+        <com.utils.MyCustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:text="@string/follow_us_on"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height=".5dp"
+            android:layout_height="2dp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:background="@color/grey" />
+            android:background="@color/imageBorderColor" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/_8sdp"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivFacebook"
-                android:layout_width="@dimen/_20sdp"
+                android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
-                android:paddingTop="@dimen/_1sdp"
-                android:layout_gravity="end"
-                android:adjustViewBounds="true"
-                android:scaleType="fitEnd"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_20sdp"
                 android:src="@drawable/ic_facebook" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivInsta"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:src="@drawable/ic_insta" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivYoutube"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_gravity="start"
-                android:adjustViewBounds="true"
-                android:scaleType="fitStart"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_15sdp"
-                android:layout_weight="1"
                 android:src="@drawable/ic_youtube" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
@@ -441,7 +463,7 @@
             android:text="@string/more_product"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold"/>
 
         <View
             android:layout_width="match_parent"

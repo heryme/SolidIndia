@@ -50,6 +50,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
         rootView = inflater.inflate(R.layout.fragment_product, container, false)
         initIDs(rootView!!)
         initComponent()
+        initToolbar()
         var langTyape = sessionManager["type",""]
         Log.e(TAG,"LanType-->$langTyape")
         callProductListAPI(langTyape)
@@ -60,7 +61,8 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
       }
 
     override fun initToolbar() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
+        (context as MainActivity).llBackMain.visibility = View.GONE
     }
 
     override fun initListeners() {

@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -17,7 +18,7 @@
             android:visibility="gone"
             android:src="@mipmap/ic_launcher11" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
@@ -25,8 +26,8 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:text="@string/more_then"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold"
+            android:textSize="18sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -34,15 +35,15 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:background="@color/grey" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/company_profile"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold"
+            android:textSize="18sp"/>
 
         <View
             android:layout_width="match_parent"
@@ -52,7 +53,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@color/grey" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
@@ -61,9 +62,9 @@
             android:text="@string/founded"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="normal" />
+            app:setTypeFace="@string/font_halvetica" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
@@ -71,7 +72,7 @@
             android:text="@string/chirmen_achiv"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold" />
 
         <View
             android:layout_width="match_parent"
@@ -81,7 +82,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:background="@color/grey" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
@@ -89,9 +90,9 @@
             android:text="@string/chairman"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="normal" />
+            app:setTypeFace="@string/font_halvetica"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
@@ -100,7 +101,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold"/>
 
         <View
             android:layout_width="match_parent"
@@ -119,7 +120,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/ic_founder_of_solid" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
@@ -127,7 +128,7 @@
             android:text="@string/global"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold"/>
 
         <View
             android:layout_width="match_parent"
@@ -146,7 +147,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/ic_45years" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:id="@+id/btnDownload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -155,7 +156,7 @@
             android:text="@string/download"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:setTypeFace="@string/font_halvetica_bold"/>
 
         <View
             android:layout_width="match_parent"

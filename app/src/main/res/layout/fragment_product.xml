@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.frament.HomeFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.utils.MyCustomTextView
         android:id="@+id/tvProductTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,9 +17,9 @@
         android:padding="@dimen/_5sdp"
         android:text="@string/products"
         android:textSize="@dimen/font_extra_large"
+        app:setTypeFace="@string/font_halvetica_bold"
         android:inputType="textCapSentences"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+        android:textColor="@color/black"/>
 
     <View
         android:layout_width="match_parent"

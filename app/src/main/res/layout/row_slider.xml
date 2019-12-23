@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <ImageView
@@ -15,12 +16,11 @@
         android:layout_height="match_parent"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
-        app:strokeColor="@color/grey"
-        app:strokeWidth="0.5dp">
+        app:strokeColor="@color/imageBorderColor"
+        app:strokeWidth="2dp">
         <ImageView
             android:id="@+id/ivSilder"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"/>
+            android:layout_height="match_parent"/>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

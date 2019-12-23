@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:id="@+id/tvProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,9 +51,9 @@
             android:text="dddddddddddddddddddddddjdjjjjaddkkd"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            app:setTypeFace="@string/font_halvetica_bold"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:id="@+id/tvProductSubName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,6 +63,7 @@
             android:textSize="12dp"
             android:text="Capacity 60-240 TPH"
             android:textAllCaps="false"
+            app:setTypeFace="@string/font_halvetica"
             android:textColor="@color/black" />
         <View
             android:id="@+id/line"

@@ -27,16 +27,16 @@ import android.R.attr.fragment
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.R.attr.name
+import android.widget.TextView
+import androidx.appcompat.widget.LinearLayoutCompat
 
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(),View.OnClickListener {
     private val TAG: String = javaClass.simpleName
-
+    lateinit var llBackMain: LinearLayoutCompat
     lateinit var ivbarToolbar: ImageView
-
     companion object{
-         var ivMoreData: ImageView? = null
+        var ivMoreData: ImageView? = null
     }
 
 
@@ -49,10 +49,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setListner() {
-
+        llBackMain.setOnClickListener(this)
     }
 
-
+    override fun onClick(view: View?) {
+        when(view) {
+            llBackMain->{
+                fragmentHandling()
+            }
+        }
+    }
 
 
     /**
@@ -78,6 +84,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         ivbarToolbar = findViewById(R.id.ivbarToolbar)
+        llBackMain = findViewById(R.id.llBack)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         setSupportActionBar(toolbar)
         getSupportActionBar()?.setTitle(null);
@@ -134,8 +141,8 @@ class MainActivity : AppCompatActivity() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_application_exit)
         dialog.setCancelable(false)
-        val btn_dialog_app_no = dialog.findViewById(R.id.btn_dialog_app_no) as Button
-        val btn_dialog_app_yes = dialog.findViewById(R.id.btn_dialog_app_yes) as Button
+        val btn_dialog_app_no = dialog.findViewById(R.id.btn_dialog_app_no) as TextView
+        val btn_dialog_app_yes = dialog.findViewById(R.id.btn_dialog_app_yes) as TextView
         dialog.show()
         btn_dialog_app_no.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {

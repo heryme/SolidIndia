@@ -2,14 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.frament.WhatsAppFragment">
-    <androidx.appcompat.widget.AppCompatButton
+    <com.utils.MyCustomTextView
         android:id="@+id/btnShare"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:background="@drawable/roundedbutton"
         android:text="@string/share_with"
+        android:gravity="center"
+        app:setTypeFace="@string/font_halvetica"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_centerInParent="true"
         android:textAllCaps="false"

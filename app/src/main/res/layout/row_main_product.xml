@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.utils.MyCustomTextView
         android:id="@+id/tvProductNameMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +18,7 @@
         android:textSize="@dimen/font_normal"
         android:textAllCaps="true"
         android:textColor="@color/black"
-        android:textStyle="bold" />
+        app:setTypeFace="@string/font_halvetica_bold" />
 
     <View
         android:layout_width="match_parent"

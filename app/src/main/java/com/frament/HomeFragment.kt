@@ -54,6 +54,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         initIDs(rootView!!)
 
         initComponent()
+        initToolbar()
         initListeners()
         var langTyape = sessionManager["type", "en"]
         Log.e(TAG, "LanType-->$langTyape")
@@ -69,7 +70,8 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     }
 
     override fun initToolbar() {
-
+        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
+        (context as MainActivity).llBackMain.visibility = View.GONE
     }
 
     override fun initListeners() {

@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">SolidIndia</string>
-    <string name="nav_home">HOME</string>
-    <string name="nav_products">PRODUCTS</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_products">Products</string>
     <string name="products">Products</string>
-    <string name="nav_profile">ABOUT US</string>
-    <string name="nav_whatsapp_icon">WHATSAPPICON</string>
+    <string name="nav_profile">About Us</string>
+    <string name="nav_whatsapp_icon">Whatsapp</string>
     <string name="appSharedPref">solidindia</string>
     <string name="dismiss">Dismiss</string>
     <string name="price">Price</string>
@@ -15,6 +15,8 @@
     <string name="tv_title_text">Are you sure want to exit?</string>
     <string name="action_search">Search</string>
     <string name="search_hint">Search</string>
+    <string name="font_halvetica">Helvetica.ttf</string>
+    <string name="font_halvetica_bold" translatable="false">Helvetica-Bold-Font.ttf</string>
 
     <!-- Network Msg  -->
     <string name="toast_time_out">Please try again, There is network error</string>
@@ -23,9 +25,9 @@
     <string name="toast_try_after_sometimes">Something went wrong please try after sometimes..</string>
     <string name="toast_something_wrong">Something went wrong please try again..</string>
     <string name="todo">todo</string>
-    <string name="photos_and_videos"><![CDATA[Photos & Videos]]></string>
-    <string name="highlight">HIGHLIGHT</string>
-    <string name="specification">SPECIFICATION</string>
+    <string name="photos_and_videos"><![CDATA[Photos]]></string>
+    <string name="highlight">Highlight</string>
+    <string name="specification">Specification</string>
     <string name="capacity">Capacity</string>
     <string name="drum_diameter">Drum diameter</string>
     <string name="more_then" translatable="false">MORE THAN 45 YEARS \nEXPERIENCE OF SUPPLYING \nROAD CONSTRUCTION EQUIPMENTS</string>
@@ -62,7 +64,7 @@ to the customers for simpler and easier tasks.</string>
 
     <string name="since">SINCE 1972</string>
     <string name="india">INDIA</string>
-    <string name="back">BACK</string>
+    <string name="back">Back</string>
     <string name="en">EN</string>
     <string name="ar">AR</string>
     <string name="es">ES</string>

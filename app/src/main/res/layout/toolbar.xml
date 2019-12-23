@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,16 +10,49 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
         android:elevation="0dp">
-        <ImageView
-            android:id="@+id/ivbarToolbar"
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:scaleType="centerCrop"
-            android:layout_gravity="start"
-            android:src="@mipmap/ic_launcher11"
-            android:gravity="center"
-            android:textColor="#1FA38F"/>
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivbarToolbar"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher11"
+                android:textColor="#1FA38F"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llBack"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:gravity="center"
+                android:visibility="visible"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:tint="@color/roundedButtonColor"
+                    android:src="@drawable/ic_back" />
+
+                <com.utils.MyCustomTextView
+                    android:id="@+id/tvBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_25sdp"
+                    android:gravity="center"
+                    android:text="@string/back"
+                    android:textColor="@color/roundedButtonColor"
+                    android:textSize="18dp"
+                    app:setTypeFace="@string/font_halvetica" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.Toolbar>
 
 

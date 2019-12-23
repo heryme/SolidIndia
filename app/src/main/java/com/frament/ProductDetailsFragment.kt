@@ -33,8 +33,8 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private lateinit var ivSubImage: ImageView
     private lateinit var tvProductName: TextView
     private lateinit var tvProductSubName: TextView
-    private lateinit var btnPrice: Button
-    private lateinit var btnShare: Button
+    private lateinit var btnPrice: TextView
+    private lateinit var btnShare: TextView
     private lateinit var tvHighlightCapacityValue: TextView
     private lateinit var tvHighlightDrumDiaValue: TextView
     private lateinit var tvHighlightHotMixValue: TextView
@@ -63,6 +63,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     ): View? {
         rootView = inflater.inflate(R.layout.fragmnet_product_details, container, false)
         initIDs(rootView!!)
+        initToolbar()
         initData()
         initListeners()
         setAdapter()
@@ -80,7 +81,8 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     }
 
     override fun initToolbar() {
-
+        (context as MainActivity).ivbarToolbar.visibility = View.GONE
+        (context as MainActivity).llBackMain.visibility = View.VISIBLE
     }
 
     override fun initListeners() {
@@ -90,10 +92,12 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvDownload.setOnClickListener(this)
         ivYoutube.setOnClickListener(this)
         ivFacebook.setOnClickListener(this)
+        //(context as MainActivity).ivbarToolbar.setOnClickListener(this)
+
     }
 
     override fun initData() {
-        var capacity = getString(R.string.capacity)
+        val capacity = getString(R.string.capacity)
         if (productData?.productImage?.size!! > 0) {
             Glide.with(context)
                 .load(productData?.productImage?.get(0)?.path)
@@ -130,8 +134,8 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view) {
-            tvBack -> {
-                (context as MainActivity).fragmentHandling()
+            (context as MainActivity).ivbarToolbar -> {
+                //(context as MainActivity).fragmentHandling()
             }
             btnShare -> {
                 shareIntent()

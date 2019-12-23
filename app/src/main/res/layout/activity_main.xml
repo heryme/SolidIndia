@@ -14,19 +14,21 @@
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_2sdp">
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_20sdp"
             android:text="@string/since"
+            app:setTypeFace="@string/font_halvetica"
             android:layout_weight="1"
             android:textColor="@color/black" />
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:text="@string/india"
+            app:setTypeFace="@string/font_halvetica"
             android:textColor="@color/black" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -52,8 +54,8 @@
         android:background="?android:attr/windowBackground"
         android:foreground="?attr/selectableItemBackground"
         app:itemBackground="@color/white"
-        app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/black"
+        app:itemIconTint="@drawable/bottom_navigation_selector"
+        app:itemTextColor="@drawable/bottom_navigation_selector"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/navigation" />
 

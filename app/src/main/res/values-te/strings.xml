@@ -23,7 +23,7 @@
     <string name="toast_try_after_sometimes">ఏదో తప్పు జరిగింది దయచేసి కొన్నిసార్లు ప్రయత్నించండి ..</string>
     <string name="toast_something_wrong">ఏదో తప్పు జరిగింది దయచేసి మళ్ళీ ప్రయత్నించండి ..</string>
     <string name="todo">todo</string>
-    <string name="photos_and_videos">ఫోటోలు &amp; వీడియోలు</string>
+    <string name="photos_and_videos">ఫోటోలు</string>
     <string name="highlight">హైలైట్</string>
     <string name="specification">స్పెసిఫికేషన్</string>
     <string name="capacity">కెపాసిటీ</string>
@@ -73,4 +73,5 @@
     <string name="te">TE</string>
     <string name="follow_us_on">మమ్మల్ని అనుసరించండి</string>
     <string name="more_product">మరింత ఉత్పత్తి</string>
+    <string name="font_halvetica">Helvetica.ttf</string>
 </resources>

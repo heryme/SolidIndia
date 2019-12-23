@@ -7,13 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.solidindia.R
+import com.solidindia.activity.MainActivity
 
 
 class WhatsAppFragment : BaseFrament(), View.OnClickListener {
 
     private var rootView: View? = null
-    private lateinit var btnShare: Button
+    private lateinit var btnShare: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,6 +27,7 @@ class WhatsAppFragment : BaseFrament(), View.OnClickListener {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_whats_app, container, false)
         initIDs(rootView!!)
+        initToolbar()
         initListeners()
         return rootView
     }
@@ -56,7 +59,8 @@ class WhatsAppFragment : BaseFrament(), View.OnClickListener {
 
 
     override fun initToolbar() {
-
+        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
+        (context as MainActivity).llBackMain.visibility = View.GONE
     }
 
     override fun initListeners() {

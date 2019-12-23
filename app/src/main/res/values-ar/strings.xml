@@ -23,11 +23,12 @@
     <string name="toast_try_after_sometimes">حدث خطأ ما يرجى المحاولة في بعض الأحيان ..</string>
     <string name="toast_something_wrong">حدث خطأ ما. أعد المحاولة من فضلك..</string>
     <string name="todo">todo</string>
-    <string name="photos_and_videos">الصور والفيديو</string>
+    <string name="photos_and_videos">الصور</string>
     <string name="highlight">تسليط الضوء</string>
     <string name="specification">تخصيص</string>
     <string name="capacity">سعة</string>
     <string name="drum_diameter">طبل القطر</string>
+    <string name="font_halvetica">Helvetica.ttf</string>
 
     <string name="more_then">أكثر من 45 عامًا / خبرة في تزويد معدات البناء بالطرق</string>
     <string name="company_profile">ملف الشركة</string>

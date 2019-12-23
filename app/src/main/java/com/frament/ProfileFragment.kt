@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.solidindia.R
+import com.solidindia.activity.MainActivity
 import com.utils.FB_URL
 import com.utils.PDF_URL
 import com.utils.YOUTUE_URL
@@ -20,9 +21,9 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
     private val TAG :String = javaClass.simpleName
     private lateinit var btnDownload: TextView
     private var rootView: View? = null
-    private lateinit var ivFacebook: ImageView
+  /*  private lateinit var ivFacebook: ImageView
     private lateinit var ivYoutube: ImageView
-
+*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -35,6 +36,7 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
         rootView = inflater.inflate(R.layout.fragment_profile, container, false)
         initIDs(rootView!!)
         initComponent()
+        initToolbar()
         initListeners()
         return rootView
     }
@@ -53,26 +55,27 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(PDF_URL))
                 startActivity(browserIntent)
             }
-            ivFacebook -> {
+           /* ivFacebook -> {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(FB_URL))
                 startActivity(browserIntent)
             }
             ivYoutube -> {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(YOUTUE_URL))
                 startActivity(browserIntent)
-            }
+            }*/
         }
     }
 
 
     override fun initToolbar() {
-
+        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
+        (context as MainActivity).llBackMain.visibility = View.GONE
     }
 
     override fun initListeners() {
         btnDownload.setOnClickListener(this)
-        ivYoutube.setOnClickListener(this)
-        ivFacebook.setOnClickListener(this)
+       /* ivYoutube.setOnClickListener(this)
+        ivFacebook.setOnClickListener(this)*/
     }
 
     override fun initData() {
@@ -81,8 +84,8 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
 
     override fun initIDs(rootView: View) {
         btnDownload = rootView.findViewById(R.id.btnDownload)
-        ivFacebook = rootView.findViewById(R.id.ivFacebook)
-        ivYoutube = rootView.findViewById(R.id.ivYoutube)
+      /*  ivFacebook = rootView.findViewById(R.id.ivFacebook)
+        ivYoutube = rootView.findViewById(R.id.ivYoutube)*/
 
     }
 
