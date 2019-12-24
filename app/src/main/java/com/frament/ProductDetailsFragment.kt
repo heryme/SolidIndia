@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +19,7 @@ import com.model.ProductResponse
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
 import com.utils.FB_URL
-import com.utils.WEB_URL
+import com.utils.PDF_URL
 import com.utils.YOUTUE_URL
 
 
@@ -40,7 +39,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private lateinit var tvHighlightHotMixValue: TextView
     private lateinit var tvHighlightCompect: TextView
     private lateinit var rvProductDetails: RecyclerView
-    private lateinit var tvDownload: TextView
+    private lateinit var ivPdf: ImageView
     private lateinit var ivFacebook: ImageView
     private lateinit var ivYoutube: ImageView
     private var productSubdapter: ProductSubAdapter? = null
@@ -89,7 +88,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvBack.setOnClickListener(this)
         btnShare.setOnClickListener(this)
         btnPrice.setOnClickListener(this)
-        tvDownload.setOnClickListener(this)
+        ivPdf.setOnClickListener(this)
         ivYoutube.setOnClickListener(this)
         ivFacebook.setOnClickListener(this)
         //(context as MainActivity).ivbarToolbar.setOnClickListener(this)
@@ -126,7 +125,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvHighlightHotMixValue = rootView.findViewById(R.id.tvHighlightHotMixValue)
         tvHighlightCompect = rootView.findViewById(R.id.tvHighlightCompect)
         rvProductDetails = rootView.findViewById(R.id.rvProductDetails)
-        tvDownload = rootView.findViewById(R.id.tvDownload)
+        ivPdf = rootView.findViewById(R.id.tvDownload)
         ivFacebook = rootView.findViewById(R.id.ivFacebook)
         ivYoutube = rootView.findViewById(R.id.ivYoutube)
 
@@ -140,8 +139,8 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
             btnShare -> {
                 shareIntent()
             }
-            tvDownload -> {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(WEB_URL))
+            ivPdf -> {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(PDF_URL))
                 startActivity(browserIntent)
             }
             ivFacebook -> {

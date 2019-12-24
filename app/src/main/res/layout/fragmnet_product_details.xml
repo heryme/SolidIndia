@@ -399,6 +399,7 @@
             android:background="@color/grey" />
 
         <ImageView
+            android:id="@+id/ivPdf"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_marginStart="@dimen/_20sdp"

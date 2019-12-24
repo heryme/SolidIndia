@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
 import com.utils.FB_URL
@@ -18,12 +17,16 @@ import com.utils.getLanguageType
 
 
 class ProfileFragment : BaseFrament(), View.OnClickListener {
-    private val TAG :String = javaClass.simpleName
-    private lateinit var btnDownload: TextView
-    private var rootView: View? = null
-  /*  private lateinit var ivFacebook: ImageView
+    private val TAG: String = javaClass.simpleName
+    private lateinit var ivPdf: ImageView
+    private lateinit var ivFacebook: ImageView
+    private lateinit var ivInsta: ImageView
     private lateinit var ivYoutube: ImageView
-*/
+    private var rootView: View? = null
+
+    /*  private lateinit var ivFacebook: ImageView
+      private lateinit var ivYoutube: ImageView
+  */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -45,24 +48,27 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
         val langTyape = sessionManager["type", "en"]
         Log.e(TAG, "LanType-->$langTyape")
 
-        getLanguageType(activity!!,langTyape)
+        getLanguageType(activity!!, langTyape)
 
     }
 
     override fun onClick(view: View?) {
         when (view) {
-            btnDownload -> {
+            ivPdf -> {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(PDF_URL))
                 startActivity(browserIntent)
             }
-           /* ivFacebook -> {
+            ivFacebook -> {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(FB_URL))
                 startActivity(browserIntent)
             }
             ivYoutube -> {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(YOUTUE_URL))
                 startActivity(browserIntent)
-            }*/
+            }
+            ivInsta -> {
+
+            }
         }
     }
 
@@ -73,9 +79,13 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
     }
 
     override fun initListeners() {
-        btnDownload.setOnClickListener(this)
-       /* ivYoutube.setOnClickListener(this)
-        ivFacebook.setOnClickListener(this)*/
+        ivPdf.setOnClickListener(this)
+        ivFacebook.setOnClickListener(this)
+        ivInsta.setOnClickListener(this)
+        ivYoutube.setOnClickListener(this)
+
+        /* ivYoutube.setOnClickListener(this)
+         ivFacebook.setOnClickListener(this)*/
     }
 
     override fun initData() {
@@ -83,9 +93,12 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
     }
 
     override fun initIDs(rootView: View) {
-        btnDownload = rootView.findViewById(R.id.btnDownload)
-      /*  ivFacebook = rootView.findViewById(R.id.ivFacebook)
-        ivYoutube = rootView.findViewById(R.id.ivYoutube)*/
+        ivPdf = rootView.findViewById(R.id.ivPdf)
+        ivFacebook = rootView.findViewById(R.id.ivFacebook)
+        ivInsta = rootView.findViewById(R.id.ivInsta)
+        ivYoutube = rootView.findViewById(R.id.ivYoutube)
+        /*  ivFacebook = rootView.findViewById(R.id.ivFacebook)
+          ivYoutube = rootView.findViewById(R.id.ivYoutube)*/
 
     }
 
