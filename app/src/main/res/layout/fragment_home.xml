@@ -32,10 +32,10 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_25sdp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="10dp"
+            app:cardElevation="0dp"
             app:strokeColor="@color/colorTextMangeDevices"
-            app:strokeWidth="0.5dp">
-            <com.utils.RoundedImageView
+            app:strokeWidth="1dp">
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivProduct1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"

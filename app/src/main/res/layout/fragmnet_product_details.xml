@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,54 +23,64 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:drawableLeft="@drawable/ic_back"
-            android:text="@string/back"
             android:gravity="center"
-            android:visibility="gone"
+            android:text="@string/back"
             android:textAllCaps="true"
-            app:setTypeFace="@string/font_halvetica"
             android:textColor="@color/roundedButtonColor"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:visibility="gone"
+            app:setTypeFace="@string/font_halvetica" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/ivSubImage1"
                 android:layout_width="@dimen/_90sdp"
                 android:layout_height="@dimen/_90sdp"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_launcher"
                 android:visibility="gone"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="@dimen/_90sdp"
+            <com.loopeer.shadow.ShadowView
+                android:layout_width="@dimen/_95sdp"
                 android:layout_height="@dimen/_95sdp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="15dp"
-                app:strokeColor="@color/imageBorderColor"
-                app:strokeWidth="1dp">
+                android:elevation="100dp"
+                app:cornerRadius="15dp"
+                app:shadowMargin="5dp"
 
-                <ImageView
-                    android:id="@+id/ivSubImage"
+                app:shadowColor="@color/imageBorderColor"
+                android:layout_margin="@dimen/_10sdp"
+                app:shadowRadius="14dp">
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="@dimen/_90sdp"
-                    android:layout_height="@dimen/_95sdp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/ic_launcher"
-                    android:visibility="visible"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    android:layout_height="@dimen/_90sdp"
+                    app:cardCornerRadius="15dp"
+                    app:strokeColor="@color/imageBorderColor"
+                    app:strokeWidth="2dp"
+                    card_view:cardElevation="0dp">
 
-            </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:id="@+id/ivSubImage"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_launcher"
+                        android:visibility="visible"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
 
+                </com.google.android.material.card.MaterialCardView>
+            </com.loopeer.shadow.ShadowView>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -80,7 +91,7 @@
                     android:id="@+id/tvProductName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="Asphalt Batch Mix Plant"
                     android:textColor="@color/black"
@@ -91,19 +102,19 @@
                     android:id="@+id/tvProductSubName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:text="Capacity 60-240 TPH"
-                    app:setTypeFace="@string/font_halvetica"
                     android:textAllCaps="false"
                     android:textColor="@color/capacityColor"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    app:setTypeFace="@string/font_halvetica" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp">
 
                     <com.utils.MyCustomTextView
@@ -111,23 +122,23 @@
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:background="@drawable/roundedbutton"
-                        android:text="@string/price"
                         android:gravity="center"
-                        app:setTypeFace="@string/font_halvetica_bold"
+                        android:text="@string/price"
                         android:textAllCaps="false"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        app:setTypeFace="@string/font_halvetica_bold" />
 
                     <com.utils.MyCustomTextView
                         android:id="@+id/btnShare"
                         android:layout_width="@dimen/_50sdp"
                         android:layout_height="@dimen/_20sdp"
-                        android:gravity="center"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@drawable/roundedbutton"
+                        android:gravity="center"
                         android:text="@string/share"
-                        app:setTypeFace="@string/font_halvetica_bold"
                         android:textAllCaps="false"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        app:setTypeFace="@string/font_halvetica_bold" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -137,7 +148,8 @@
             android:layout_width="match_parent"
             android:layout_height=".5dp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:background="@color/grey" />
+            android:background="@color/grey"
+            android:visibility="gone" />
 
         <com.utils.MyCustomTextView
             android:layout_width="wrap_content"
@@ -145,18 +157,19 @@
             android:layout_marginStart="@dimen/_25sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            app:setTypeFace="@string/font_halvetica_bold"
             android:text="@string/photos_and_videos"
             android:textColor="@color/photosColor"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            app:setTypeFace="@string/font_halvetica_bold" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vpSlider"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_120sdp"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_20sdp" />
+            android:layout_marginEnd="@dimen/_5sdp" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
@@ -177,12 +190,12 @@
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:text="@string/highlight"
             android:padding="@dimen/_5sdp"
+            android:text="@string/highlight"
             android:textAllCaps="false"
-            app:setTypeFace="@string/font_halvetica_bold"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:setTypeFace="@string/font_halvetica_bold" />
 
         <View
             android:layout_width="match_parent"
@@ -196,10 +209,10 @@
             android:id="@+id/tvHighlightCompect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_5sdp"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
             android:text="Compact Modular Concept"
             android:textColor="@color/black"
             android:textSize="12sp" />
@@ -233,14 +246,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
-            android:padding="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
             android:text="@string/specification"
-            app:setTypeFace="@string/font_halvetica_bold"
             android:textAllCaps="true"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            app:setTypeFace="@string/font_halvetica_bold" />
 
         <View
             android:layout_width="match_parent"
@@ -268,9 +281,9 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:gravity="start"
                     android:text="@string/capacity"
-                    app:setTypeFace="@string/font_halvetica"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    app:setTypeFace="@string/font_halvetica" />
 
                 <com.utils.MyCustomTextView
                     android:id="@+id/tvHighlightCapacityValue"
@@ -280,9 +293,9 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:gravity="start"
                     android:text="60-120 TPH"
-                    app:setTypeFace="@string/font_halvetica"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    app:setTypeFace="@string/font_halvetica" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <View
@@ -291,8 +304,8 @@
                 android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:visibility="gone"
-                android:background="@color/imageBorderColor" />
+                android:background="@color/imageBorderColor"
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -332,8 +345,8 @@
                 android:layout_marginStart="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:visibility="gone"
-                android:background="@color/grey" />
+                android:background="@color/grey"
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -371,10 +384,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginStart="@dimen/_25sdp"
-                android:visibility="gone"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:background="@color/grey" />
+                android:background="@color/grey"
+                android:visibility="gone" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <com.utils.MyCustomTextView
@@ -387,8 +400,8 @@
             android:text="@string/download"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:setTypeFace="@string/font_halvetica_bold"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:setTypeFace="@string/font_halvetica_bold" />
 
         <View
             android:layout_width="match_parent"
@@ -404,7 +417,7 @@
             android:layout_height="@dimen/_25sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_8sdp"
-            android:src="@drawable/ic_pdf"/>
+            android:src="@drawable/ic_pdf" />
 
 
         <com.utils.MyCustomTextView
@@ -429,8 +442,8 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="start"
             android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="start"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -439,6 +452,7 @@
                 android:layout_height="@dimen/_25sdp"
                 android:layout_marginStart="@dimen/_20sdp"
                 android:src="@drawable/ic_facebook" />
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivInsta"
                 android:layout_width="@dimen/_25sdp"
@@ -464,7 +478,7 @@
             android:text="@string/more_product"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:setTypeFace="@string/font_halvetica_bold"/>
+            app:setTypeFace="@string/font_halvetica_bold" />
 
         <View
             android:layout_width="match_parent"

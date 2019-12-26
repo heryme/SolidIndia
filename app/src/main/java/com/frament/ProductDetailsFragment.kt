@@ -21,6 +21,10 @@ import com.solidindia.activity.MainActivity
 import com.utils.FB_URL
 import com.utils.PDF_URL
 import com.utils.YOUTUE_URL
+import com.utils.loadImage
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.SpannableString
 
 
 class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
@@ -98,10 +102,18 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     override fun initData() {
         val capacity = getString(R.string.capacity)
         if (productData?.productImage?.size!! > 0) {
-            Glide.with(context)
+
+            productData?.productImage?.get(0)?.path?.let {
+                loadImage(
+                    it,
+                    appcontroller.getAppContext()!!, ivSubImage,
+                    R.mipmap.ic_launcher
+                )
+            }
+            /*Glide.with(context)
                 .load(productData?.productImage?.get(0)?.path)
                 .error(R.mipmap.ic_launcher)
-                .into(ivSubImage)
+                .into(ivSubImage)*/
         }
 
         tvProductName.text = productData?.productName
@@ -125,7 +137,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         tvHighlightHotMixValue = rootView.findViewById(R.id.tvHighlightHotMixValue)
         tvHighlightCompect = rootView.findViewById(R.id.tvHighlightCompect)
         rvProductDetails = rootView.findViewById(R.id.rvProductDetails)
-        ivPdf = rootView.findViewById(R.id.tvDownload)
+        ivPdf = rootView.findViewById(R.id.ivPdf)
         ivFacebook = rootView.findViewById(R.id.ivFacebook)
         ivYoutube = rootView.findViewById(R.id.ivYoutube)
 
@@ -173,10 +185,16 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private fun setAdapter() {
         introSliderList = ArrayList()
         introSliderList!!.addAll(productData?.productImage as ArrayList)
-        myViewPagerAdapter = MyViewPagerAdapter(activity, introSliderList)
+        myViewPagerAdapter = MyViewPagerAdapter(activity!!, activity!!, introSliderList!!)
         vpSlider.setAdapter(myViewPagerAdapter);
         vpSlider.addOnPageChangeListener(viewPagerPageChangeListener);
-
+        if (introSliderList?.size!! > 1) {
+            vpSlider.setClipToPadding(false)
+            vpSlider.setPadding(0, 0, 100, 0)
+        }else{
+            vpSlider.setClipToPadding(true)
+            vpSlider.setPadding(0, 0, 0, 0)
+        }
         Log.e(TAG, "getMainAdapterPost->" + appcontroller.getMainAdapterPost())
         Log.e(TAG, "getSubAdapterPost->" + appcontroller.getSubAdapterPost())
 

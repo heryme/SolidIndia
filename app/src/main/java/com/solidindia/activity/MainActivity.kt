@@ -10,10 +10,6 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.frament.HomeFragment
-import com.frament.ProductFragment
-import com.frament.ProfileFragment
-import com.frament.WhatsAppFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.solidindia.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,6 +26,7 @@ import android.R.attr.name
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
+import com.frament.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -104,18 +101,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     fun fragmentHandling() {
         //Fragment Remove From The Stack
-        supportFragmentManager.popBackStack()
+        supportFragmentManager.popBackStackImmediate()
         val frag = supportFragmentManager.findFragmentByTag(
             supportFragmentManager.fragments.get(supportFragmentManager.backStackEntryCount - 1).tag
         )
         Log.e(TAG, "Frament name-->" + frag)
         if (frag is HomeFragment) {
-            llBackMain.visibility = View.VISIBLE
-            ivbarToolbar.visibility = View.GONE
+            llBackMain.visibility = View.GONE
+            ivbarToolbar.visibility = View.VISIBLE
         } else if (frag is ProductFragment) {
             llBackMain.visibility = View.GONE
             ivbarToolbar.visibility = View.VISIBLE
-        } else {
+        }else if(frag is ProductDetailsFragment){
+            llBackMain.visibility = View.VISIBLE
+            ivbarToolbar.visibility = View.GONE
+        }
+
+        else {
             ivbarToolbar.visibility = View.VISIBLE
             llBackMain.visibility = View.GONE
         }

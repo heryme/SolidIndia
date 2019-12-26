@@ -42,6 +42,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.intuit.ssp:ssp-android:1.0.5'
     implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:4.0.1'
+    compile 'com.loopeer.lib:shadow:0.0.3'
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }
