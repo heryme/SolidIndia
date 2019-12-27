@@ -45,4 +45,5 @@ dependencies {
     compile 'com.loopeer.lib:shadow:0.0.3'
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
 }

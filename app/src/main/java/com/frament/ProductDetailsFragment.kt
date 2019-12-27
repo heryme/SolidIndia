@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.adapter.MyViewPagerAdapter
 import com.adapter.ProductSubAdapter
-import com.bumptech.glide.Glide
 import com.frament.HomeFragment.Companion.tempList
 import com.model.ProductResponse
 import com.solidindia.R
@@ -22,9 +21,6 @@ import com.utils.FB_URL
 import com.utils.PDF_URL
 import com.utils.YOUTUE_URL
 import com.utils.loadImage
-import android.text.style.ForegroundColorSpan
-import android.text.style.RelativeSizeSpan
-import android.text.SpannableString
 
 
 class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
@@ -188,9 +184,11 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         myViewPagerAdapter = MyViewPagerAdapter(activity!!, activity!!, introSliderList!!)
         vpSlider.setAdapter(myViewPagerAdapter);
         vpSlider.addOnPageChangeListener(viewPagerPageChangeListener);
+
+        var hun = getResources().getDimensionPixelSize(R.dimen._90sdp);
         if (introSliderList?.size!! > 1) {
             vpSlider.setClipToPadding(false)
-            vpSlider.setPadding(0, 0, 100, 0)
+            vpSlider.setPadding(0, 0, hun, 0)
         }else{
             vpSlider.setClipToPadding(true)
             vpSlider.setPadding(0, 0, 0, 0)

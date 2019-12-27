@@ -250,7 +250,7 @@
             android:layout_marginEnd="@dimen/_10sdp"
             android:padding="@dimen/_5sdp"
             android:text="@string/specification"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:setTypeFace="@string/font_halvetica_bold" />
