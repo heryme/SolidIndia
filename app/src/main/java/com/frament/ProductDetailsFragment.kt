@@ -185,7 +185,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         vpSlider.setAdapter(myViewPagerAdapter);
         vpSlider.addOnPageChangeListener(viewPagerPageChangeListener);
 
-        var hun = getResources().getDimensionPixelSize(R.dimen._90sdp);
+        var hun = getResources().getDimensionPixelSize(R.dimen._20sdp);
         if (introSliderList?.size!! > 1) {
             vpSlider.setClipToPadding(false)
             vpSlider.setPadding(0, 0, hun, 0)
