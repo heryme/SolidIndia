@@ -27,7 +27,7 @@
     <dimen name="font_size_15_">15.5sp</dimen>
     <dimen name="font_size_16">@dimen/_16ssp</dimen>
     <dimen name="font_size_17">@dimen/_17ssp</dimen>
-    <dimen name="font_size_18">18sp</dimen>
+    <dimen name="font_size_18">@dimen/_18ssp</dimen>
     <dimen name="font_size_20">@dimen/_20sdp</dimen>
     <dimen name="font_size_22">@dimen/_22sdp</dimen>
     <dimen name="font_size_24">@dimen/_24sdp</dimen>

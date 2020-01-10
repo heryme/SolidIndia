@@ -17,10 +17,7 @@ import com.frament.HomeFragment.Companion.tempList
 import com.model.ProductResponse
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
-import com.utils.FB_URL
-import com.utils.PDF_URL
-import com.utils.YOUTUE_URL
-import com.utils.loadImage
+import com.utils.*
 
 
 class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
@@ -41,6 +38,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private lateinit var rvProductDetails: RecyclerView
     private lateinit var ivPdf: ImageView
     private lateinit var ivFacebook: ImageView
+    private lateinit var ivInsta: ImageView
     private lateinit var ivYoutube: ImageView
     private var productSubdapter: ProductSubAdapter? = null
     private var productSubList: ArrayList<ProductResponse.Data.Category.Product>? = null
@@ -91,6 +89,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         ivPdf.setOnClickListener(this)
         ivYoutube.setOnClickListener(this)
         ivFacebook.setOnClickListener(this)
+        ivInsta.setOnClickListener(this)
         //(context as MainActivity).ivbarToolbar.setOnClickListener(this)
 
     }
@@ -136,6 +135,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         ivPdf = rootView.findViewById(R.id.ivPdf)
         ivFacebook = rootView.findViewById(R.id.ivFacebook)
         ivYoutube = rootView.findViewById(R.id.ivYoutube)
+        ivInsta = rootView.findViewById(R.id.ivInsta)
 
     }
 
@@ -148,7 +148,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
                 shareIntent()
             }
             ivPdf -> {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(PDF_URL))
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(WEB_URL))
                 startActivity(browserIntent)
             }
             ivFacebook -> {
@@ -157,6 +157,10 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
             }
             ivYoutube -> {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(YOUTUE_URL))
+                startActivity(browserIntent)
+            }
+            ivInsta->{
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(INSTA_URL))
                 startActivity(browserIntent)
             }
             btnPrice -> {
