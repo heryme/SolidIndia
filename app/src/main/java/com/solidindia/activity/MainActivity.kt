@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         return true
                     }
                     R.id.navigation_product -> {
-                        loadFragment(ProductFragment(), true,false)
+                        loadFragment(ProductFragment(), false,false)
                         return true
                     }
                     R.id.navigation_profile -> {
@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         return true
                     }
                     R.id.navigation_whats_app -> {
-                        loadFragment(WhatsAppFragment(), false,false)
+                        loadFragment(WhatsAppFragment(), true,false)
                         return true
                     }
                 }

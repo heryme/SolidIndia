@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
 import android.widget.TextView
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
@@ -66,8 +65,8 @@ class WhatsAppFragment : BaseFrament(), View.OnClickListener {
 
 
     override fun initToolbar() {
-        (context as MainActivity).ivbarToolbar.visibility = View.GONE
-        (context as MainActivity).llBackMain.visibility = View.VISIBLE
+        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
+        (context as MainActivity).llBackMain.visibility = View.GONE
     }
 
     override fun initListeners() {

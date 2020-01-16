@@ -64,8 +64,8 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
       }
 
     override fun initToolbar() {
-        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
-        (context as MainActivity).llBackMain.visibility = View.GONE
+        (context as MainActivity).ivbarToolbar.visibility = View.GONE
+        (context as MainActivity).llBackMain.visibility = View.VISIBLE
     }
 
     override fun initListeners() {
@@ -128,6 +128,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
         inflater.inflate(R.menu.menu_main, menu)
         super.onCreateOptionsMenu(menu, inflater)
         val overflowMenu = menu.findItem(R.id.overflow)
@@ -167,6 +168,8 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
             }
         })
     }
+
+
 
    /* override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
