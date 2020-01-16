@@ -96,7 +96,7 @@ class ProductSubAdapter(
                 appcontroller.setProductData(productList[position])
                 appcontroller.setSubAdapterPost(position)
                 appcontroller.setMainAdapterPost(pos)
-                (context as MainActivity).loadFragment(ProductDetailsFragment(), false)
+                (context as MainActivity).loadFragment(ProductDetailsFragment(), false,true)
             }
         }
     }

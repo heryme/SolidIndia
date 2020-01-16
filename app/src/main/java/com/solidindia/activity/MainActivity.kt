@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
         initView()
         setListner()
-        loadFragment(HomeFragment(), false)
+        loadFragment(HomeFragment(), false,false)
     }
 
     fun setListner() {
@@ -54,7 +54,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view) {
             llBackMain -> {
-                fragmentHandling()
+                if (supportFragmentManager.backStackEntryCount == 1) {
+                    showExitDialog()
+                } else {
+                    fragmentHandling()
+                }
             }
         }
     }
@@ -65,9 +69,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      * @param fragment
      * @param isMenuItem
      */
-    fun loadFragment(fragment: Fragment, isMenuItem: Boolean) {
-
+    fun loadFragment(fragment: Fragment, isMenuItem: Boolean,isAnim:Boolean) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
+        if(isAnim){
+             fragmentTransaction.setCustomAnimations(R.anim.right_to_left,0,0, R.anim.left_to_right)
+        }
         fragmentTransaction.add(R.id.frame_container, fragment, fragment.javaClass.getSimpleName())
         if (isMenuItem) {
             val fm = supportFragmentManager
@@ -109,14 +115,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         if (frag is HomeFragment) {
             llBackMain.visibility = View.GONE
             ivbarToolbar.visibility = View.VISIBLE
+            navigation.setSelectedItemId(R.id.navigation_home);
         } else if (frag is ProductFragment) {
             llBackMain.visibility = View.GONE
             ivbarToolbar.visibility = View.VISIBLE
+            navigation.setSelectedItemId(R.id.navigation_product);
         }else if(frag is ProductDetailsFragment){
             llBackMain.visibility = View.VISIBLE
             ivbarToolbar.visibility = View.GONE
+        }else if(frag is ProfileFragment){
+            llBackMain.visibility = View.VISIBLE
+            ivbarToolbar.visibility = View.GONE
+            navigation.setSelectedItemId(R.id.navigation_profile);
+        }else if(frag is WhatsAppFragment){
+            navigation.setSelectedItemId(R.id.navigation_whats_app);
+            llBackMain.visibility = View.VISIBLE
+            ivbarToolbar.visibility = View.GONE
         }
-
         else {
             ivbarToolbar.visibility = View.VISIBLE
             llBackMain.visibility = View.GONE
@@ -129,19 +144,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val fragment: Fragment
                 when (item.getItemId()) {
                     R.id.navigation_home -> {
-                        loadFragment(HomeFragment(), true)
+                        loadFragment(HomeFragment(), true,false)
                         return true
                     }
                     R.id.navigation_product -> {
-                        loadFragment(ProductFragment(), true)
+                        loadFragment(ProductFragment(), true,false)
                         return true
                     }
                     R.id.navigation_profile -> {
-                        loadFragment(ProfileFragment(), true)
+                        loadFragment(ProfileFragment(), true,false)
                         return true
                     }
                     R.id.navigation_whats_app -> {
-                        loadFragment(WhatsAppFragment(), true)
+                        loadFragment(WhatsAppFragment(), true,false)
                         return true
                     }
                 }

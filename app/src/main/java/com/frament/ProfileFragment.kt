@@ -4,16 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
-import com.utils.FB_URL
-import com.utils.PDF_URL
-import com.utils.YOUTUE_URL
-import com.utils.getLanguageType
+import com.utils.*
+
+
+
 
 
 class ProfileFragment : BaseFrament(), View.OnClickListener {
@@ -29,6 +27,7 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
   */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -67,15 +66,16 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
                 startActivity(browserIntent)
             }
             ivInsta -> {
-
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(INSTA_URL))
+                startActivity(browserIntent)
             }
         }
     }
 
 
     override fun initToolbar() {
-        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
-        (context as MainActivity).llBackMain.visibility = View.GONE
+        (context as MainActivity).ivbarToolbar.visibility = View.GONE
+        (context as MainActivity).llBackMain.visibility = View.VISIBLE
     }
 
     override fun initListeners() {
@@ -86,6 +86,15 @@ class ProfileFragment : BaseFrament(), View.OnClickListener {
 
         /* ivYoutube.setOnClickListener(this)
          ivFacebook.setOnClickListener(this)*/
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        inflater.inflate(R.menu.menu_main, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+        val item = menu.findItem(R.id.filter)
+        item.setVisible(false)
+
     }
 
     override fun initData() {

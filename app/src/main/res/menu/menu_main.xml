@@ -22,6 +22,7 @@
         android:title="more"
         android:orderInCategory="101"
         app:icon="@drawable/ic_more"
+        android:visible="false"
         app:showAsAction="ifRoom"
         tools:ignore="PrivateResource" />
 

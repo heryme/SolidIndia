@@ -3,9 +3,7 @@ package com.frament
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.TextView
 import com.solidindia.R
@@ -18,6 +16,7 @@ class WhatsAppFragment : BaseFrament(), View.OnClickListener {
     private lateinit var btnShare: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
@@ -30,6 +29,14 @@ class WhatsAppFragment : BaseFrament(), View.OnClickListener {
         initToolbar()
         initListeners()
         return rootView
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        inflater.inflate(R.menu.menu_main, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+        val item = menu.findItem(R.id.filter)
+        item.setVisible(false)
     }
 
     override fun initComponent() {
@@ -59,8 +66,8 @@ class WhatsAppFragment : BaseFrament(), View.OnClickListener {
 
 
     override fun initToolbar() {
-        (context as MainActivity).ivbarToolbar.visibility = View.VISIBLE
-        (context as MainActivity).llBackMain.visibility = View.GONE
+        (context as MainActivity).ivbarToolbar.visibility = View.GONE
+        (context as MainActivity).llBackMain.visibility = View.VISIBLE
     }
 
     override fun initListeners() {

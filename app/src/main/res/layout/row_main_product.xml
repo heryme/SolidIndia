@@ -15,7 +15,7 @@
         android:layout_marginEnd="@dimen/_15sdp"
         android:padding="@dimen/_5sdp"
         android:text="asphalt "
-        android:textSize="@dimen/font_normal"
+        android:textSize="@dimen/font_large"
         android:textAllCaps="true"
         android:textColor="@color/black"
         app:setTypeFace="@string/font_halvetica_bold" />

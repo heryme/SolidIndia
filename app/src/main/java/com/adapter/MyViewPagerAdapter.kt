@@ -20,6 +20,10 @@ import com.model.ProductResponse
 import com.solidindia.R
 import com.utils.loadImage
 import kotlinx.android.synthetic.main.row_sub_product.view.*
+import androidx.core.content.ContextCompat.startActivity
+import android.content.Intent
+import com.solidindia.activity.ShowFullImageActivity
+
 
 class MyViewPagerAdapter(
     private val activity:Activity,
@@ -41,6 +45,14 @@ class MyViewPagerAdapter(
         loadImage(path,
             appcontroller.getAppContext()!!, ivSilder,
             R.mipmap.ic_launcher)
+
+        ivSilder.setOnClickListener(object:View.OnClickListener{
+            override fun onClick(p0: View?) {
+                val intent = Intent(context, ShowFullImageActivity::class.java)
+                intent.putExtra("data", path)
+                context.startActivity(intent)
+            }
+        })
 
         /* Glide.with(context)
                     .load(item.getPath())

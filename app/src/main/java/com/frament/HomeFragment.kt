@@ -132,7 +132,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
             applyFontToMenuItem(mi)
         }
 
-        // Associate searchable configuration with the SearchView
+        //Associate searchable configuration with the SearchView
         val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = menu.findItem(R.id.action_search).getActionView() as SearchView
         searchView!!.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
@@ -273,8 +273,8 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
         return if (id == R.id.action_search) {
             true
-        } else if (item.itemId == R.id.overflow) {
-            val anchor = checkNotNull<View>(activity?.findViewById(R.id.overflow))
+        } else if (item.itemId == R.id.filter) {
+            val anchor = checkNotNull<View>(activity?.findViewById(R.id.filter))
             onCustomPaddingTextViewClicked(anchor)
         return true
         }

@@ -68,9 +68,11 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
         inflater.inflate(R.menu.menu_main, menu)
         super.onCreateOptionsMenu(menu, inflater)
-        menu.clear()
+        val item = menu.findItem(R.id.filter)
+        item.setVisible(false)
     }
 
     override fun initComponent() {

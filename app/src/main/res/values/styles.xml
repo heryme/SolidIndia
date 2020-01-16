@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:actionButtonStyle">@style/ActionButton</item>
+       <!-- <item name="android:actionButtonStyle">@style/ActionButton</item>-->
 
     </style>
 
@@ -42,8 +42,8 @@
 
     <!--  Reduce Space between toolbar menu icons -->
     <style name="ActionButton" parent="@android:style/Widget.ActionButton">
-        <item name="android:paddingStart">5dp</item>
-        <item name="android:paddingEnd">5dp</item>
+        <item name="android:paddingStart">2dp</item>
+        <item name="android:paddingEnd">2dp</item>
         <item name="android:minWidth">2dp</item>
     </style>
 
