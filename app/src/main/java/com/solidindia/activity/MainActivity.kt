@@ -2,31 +2,21 @@ package com.solidindia.activity
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.Window
-import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.frament.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.solidindia.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
-import android.R.attr.fragment
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.R.attr.name
-import android.R.attr.fragment
-
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.R.attr.name
-import android.util.Log
-import android.widget.TextView
-import androidx.appcompat.widget.LinearLayoutCompat
-import com.frament.*
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -152,11 +142,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         return true
                     }
                     R.id.navigation_profile -> {
-                        loadFragment(ProfileFragment(), true,false)
+                        loadFragment(ProfileFragment(), false,false)
                         return true
                     }
                     R.id.navigation_whats_app -> {
-                        loadFragment(WhatsAppFragment(), true,false)
+                        loadFragment(WhatsAppFragment(), false,false)
                         return true
                     }
                 }

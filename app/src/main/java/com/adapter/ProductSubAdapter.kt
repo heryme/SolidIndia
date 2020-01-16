@@ -3,15 +3,11 @@ package com.adapter
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.AppController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.frament.HomeFragment.Companion.tempList
 import com.frament.ProductDetailsFragment
 import com.model.ProductResponse
 import com.solidindia.R
@@ -55,10 +51,12 @@ class ProductSubAdapter(
         fun bind(position: Int, productList: ArrayList<ProductResponse.Data.Category.Product>) {
             appcontroller = activity.application as AppController
 
-            if (!tempList.contains(productList[position])) {
+            /*if (!tempList.contains(productList[position])) {
                 tempList.add(productList[position])
                 Log.e("TAG", "Temp List Size--->${tempList.size}")
-            }
+            }*/
+
+
 
             if (isShowAllListItem) {
                 itemView.visibility = View.VISIBLE
@@ -69,10 +67,13 @@ class ProductSubAdapter(
 
                 itemView.setLayoutParams(params)
             } else {
-                if (position == appcontroller.getSubAdapterPost()) {
+               /* if (position == appcontroller.getSubAdapterPost()) {
                     itemView.visibility = View.GONE
                     itemView.setLayoutParams(RecyclerView.LayoutParams(0, 0))
-
+                }*/
+                if (productList.get(position).id.equals(appcontroller.getProductData().id)) {
+                    itemView.visibility = View.GONE
+                    itemView.setLayoutParams(RecyclerView.LayoutParams(0, 0))
                 }
             }
 
@@ -83,12 +84,6 @@ class ProductSubAdapter(
                 loadImage(productList[position].productImage[0].path,
                     appcontroller.getAppContext()!!, itemView.ivSubImage,
                     R.mipmap.ic_launcher)
-
-
-                /*Glide.with(context)
-                    .load(productList[position].productImage[0].path)
-                    .error(R.mipmap.ic_launcher)
-                    .into(itemView.ivSubImage)*/
             }
 
 

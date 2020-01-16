@@ -21,7 +21,8 @@ import kotlinx.android.synthetic.main.row_main_product.view.*
 
 class ProductMainAdapter(var context: Context,
                          var activity:Activity,
-                         var productList: ArrayList<ProductResponse.Data>) :
+                         var productList: ArrayList<ProductResponse.Data>,
+                         var isShowFullItem:Boolean) :
     RecyclerView.Adapter<ProductMainAdapter.SubViewHolder>(), Filterable {
 
     private lateinit var productMainAdapter: ProductSubAdapter
@@ -95,7 +96,7 @@ class ProductMainAdapter(var context: Context,
     }
 
     private fun setAdpater(recyclerView: RecyclerView,productSubList: ArrayList<ProductResponse.Data.Category.Product>,position: Int) {
-        productMainAdapter = ProductSubAdapter(context,activity, productSubList,position,true)
+        productMainAdapter = ProductSubAdapter(context,activity, productSubList,position,isShowFullItem)
         recyclerView.adapter = productMainAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }

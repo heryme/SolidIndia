@@ -9,6 +9,7 @@ class AppController: Application()  {
     private var listData:ArrayList<ProductResponse.Data>?= null
     private var mainAdapterSelectionPosition:Int = 0
     private var subbAdapterSelectionPosition:Int = 0
+    private var productObj: ProductResponse.Data.Category.Product? = null
 
     companion object {
         @get:Synchronized
@@ -56,6 +57,10 @@ class AppController: Application()  {
     fun getSubAdapterPost():Int{
         return this.subbAdapterSelectionPosition
     }
+
+
+
+
 }
 
 

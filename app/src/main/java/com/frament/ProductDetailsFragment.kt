@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.adapter.MyViewPagerAdapter
-import com.adapter.ProductSubAdapter
-import com.frament.HomeFragment.Companion.tempList
+import com.adapter.ProductMainAdapter
 import com.model.ProductResponse
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
@@ -40,8 +39,10 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private lateinit var ivFacebook: ImageView
     private lateinit var ivInsta: ImageView
     private lateinit var ivYoutube: ImageView
-    private var productSubdapter: ProductSubAdapter? = null
-    private var productSubList: ArrayList<ProductResponse.Data.Category.Product>? = null
+    /*private var productSubdapter: ProductSubAdapter? = null
+    private var productSubList: ArrayList<ProductResponse.Data.Category.Product>? = null*/
+    private var productMainAdapter: ProductMainAdapter? = null
+    private var productList: ArrayList<ProductResponse.Data>? = null
 
     private var myViewPagerAdapter: MyViewPagerAdapter? = null
     var introSliderList: ArrayList<ProductResponse.Data.Category.Product.ProductImage>? = null
@@ -202,8 +203,8 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         Log.e(TAG, "getMainAdapterPost->" + appcontroller.getMainAdapterPost())
         Log.e(TAG, "getSubAdapterPost->" + appcontroller.getSubAdapterPost())
 
-        productSubList = ArrayList()
-        productSubList?.addAll(tempList/*appcontroller.getDataList()[appcontroller.getMainAdapterPost()].category.product*/)
+      /*  productSubList = ArrayList()
+        productSubList?.addAll(tempList*//*appcontroller.getDataList()[appcontroller.getMainAdapterPost()].category.product*//*)
         productSubdapter = ProductSubAdapter(
             activity!!,
             activity!!,
@@ -212,7 +213,16 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
             false
         )
         rvProductDetails.adapter = productSubdapter
+        rvProductDetails.layoutManager = LinearLayoutManager(activity)*/
+
+
+        productList = ArrayList()
+        productList!!.addAll(appcontroller.getDataList())
+        productMainAdapter = ProductMainAdapter(activity!!, activity!!, productList!!,false)
+        rvProductDetails.adapter = productMainAdapter
         rvProductDetails.layoutManager = LinearLayoutManager(activity)
+
+
 
     }
 

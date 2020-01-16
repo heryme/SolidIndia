@@ -114,7 +114,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     private fun setAdpater() {
         ///val productList: ArrayList<ProductResponse.Data.Category> = ArrayList()
 
-        productMainAdapter = ProductMainAdapter(activity!!, activity!!, productList!!)
+        productMainAdapter = ProductMainAdapter(activity!!, activity!!, productList!!,true)
         rvProductMain.adapter = productMainAdapter
         rvProductMain.layoutManager = LinearLayoutManager(activity)
 

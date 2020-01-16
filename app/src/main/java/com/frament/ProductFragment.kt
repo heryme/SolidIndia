@@ -84,7 +84,7 @@ class ProductFragment : BaseFrament(),ApiResponseInterface {
     private fun setAdpater() {
         ///val productList: ArrayList<ProductResponse.Data.Category> = ArrayList()
 
-        productMainAdapter = ProductMainAdapter(activity!!,activity!!, productList!!)
+        productMainAdapter = ProductMainAdapter(activity!!,activity!!, productList!!,true)
         rvProduct.adapter = productMainAdapter
         rvProduct.layoutManager = LinearLayoutManager(activity)
 
