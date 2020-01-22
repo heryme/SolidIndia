@@ -1,17 +1,11 @@
 package com.solidindia.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.app.AppController
 import com.solidindia.R
-import com.utils.Toast
 import com.utils.loadImage
 import kotlinx.android.synthetic.main.activity_show_full_imae.*
-import kotlinx.android.synthetic.main.toolbar.*
 
 
 class ShowFullImageActivity : AppCompatActivity() {
@@ -22,12 +16,16 @@ class ShowFullImageActivity : AppCompatActivity() {
         appcontroller = application as AppController
         val extras = intent.extras
         if (extras != null) {
-            var data = extras.getString("data")
-            loadImage(
-                data,
-                appcontroller.getAppContext()!!, ivFullImage,
-                R.mipmap.ic_launcher
-            )
+            if (extras.getString("data").startsWith("http://")) {
+                var data = extras.getString("data")
+                loadImage(
+                    data,
+                    appcontroller.getAppContext()!!, ivFullImage,
+                    R.mipmap.ic_launcher
+                )
+            } else {
+                ivFullImage.setImageResource(R.drawable.ic_home_banner);
+            }
         }
 
     }

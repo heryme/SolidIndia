@@ -3,6 +3,7 @@ package com.frament
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.util.Log
 import android.view.*
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.FragmentManager
@@ -24,12 +26,13 @@ import com.rest.ApiResponseInterface
 import com.rest.ApiResponseManager
 import com.solidindia.R
 import com.solidindia.activity.MainActivity
+import com.solidindia.activity.ShowFullImageActivity
 import com.utils.CustomTypefaceSpan
 import com.utils.getLanguageType
 import com.utils.isNetWork
 
 
-class HomeFragment : BaseFrament(), ApiResponseInterface {
+class HomeFragment : BaseFrament(), ApiResponseInterface,View.OnClickListener {
     var TAG: String = javaClass.simpleName
     private var rootView: View? = null
     private var searchView: SearchView? = null
@@ -37,6 +40,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     private var productMainAdapter: ProductMainAdapter? = null
     private var productList: ArrayList<ProductResponse.Data>? = null
     private var menu: Menu? = null
+    private lateinit var ivProduct1:ImageView
 
 
     companion object {
@@ -81,6 +85,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     }
 
     override fun initListeners() {
+        ivProduct1.setOnClickListener(this)
     }
 
     override fun initData() {
@@ -89,23 +94,35 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
     override fun initIDs(rootView: View) {
         rvProductMain = rootView.findViewById(R.id.rvProductMain)
+        ivProduct1 = rootView.findViewById(R.id.ivProduct1)
     }
 
-    private fun selectedMenuLan(selectedType:String) {
+    override fun onClick(view: View?) {
+        when(view){
+            ivProduct1->{
+                val intent = Intent(context, ShowFullImageActivity::class.java)
+                intent.putExtra("data", "drawable")
+                startActivity(intent)
+            }
+        }
+    }
+
+
+    private fun selectedMenuLan(selectedType: String) {
         val menuItem = menu?.findItem(R.id.filter)
-        if(selectedType.equals("en")) {
+        if (selectedType.equals("en")) {
             menuItem?.setTitle("EN")
-        }else if (selectedType.equals("ar")) {
+        } else if (selectedType.equals("ar")) {
             menuItem?.setTitle("AR")
-        }else if (selectedType.equals("sp")) {
+        } else if (selectedType.equals("sp")) {
             menuItem?.setTitle("ES")
-        }else if (selectedType.equals("ch")) {
+        } else if (selectedType.equals("ch")) {
             menuItem?.setTitle("ZH")
-        }else if (selectedType.equals("fr")) {
+        } else if (selectedType.equals("fr")) {
             menuItem?.setTitle("FR")
-        }else if (selectedType.equals("tm")) {
+        } else if (selectedType.equals("tm")) {
             menuItem?.setTitle("TA")
-        }else if (selectedType.equals("te")) {
+        } else if (selectedType.equals("te")) {
             menuItem?.setTitle("TE")
         }
     }
@@ -113,8 +130,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
     private fun setAdpater() {
         ///val productList: ArrayList<ProductResponse.Data.Category> = ArrayList()
-
-        productMainAdapter = ProductMainAdapter(activity!!, activity!!, productList!!,true)
+        productMainAdapter = ProductMainAdapter(activity!!, activity!!, productList!!, true)
         rvProductMain.adapter = productMainAdapter
         rvProductMain.layoutManager = LinearLayoutManager(activity)
 
@@ -180,8 +196,6 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
     }
 
 
-
-
     fun onCustomPaddingTextViewClicked(view: View) {
         val popupMenu = popupMenu {
             style = R.style.Widget_MPM_Menu_CustomPadding
@@ -190,7 +204,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                     label = getString(R.string.en)
                     callback = {
                         sessionManager.put("type", "en")
-                        getLanguageType(activity!!,"en")
+                        getLanguageType(activity!!, "en")
                         //setLocale("en")
                         reCreateFragment()
                         //callProductListAPI("en")
@@ -213,7 +227,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                     callback = {
                         sessionManager.put("type", "sp")
                         //setLocale("es")
-                        getLanguageType(activity!!,"sp")
+                        getLanguageType(activity!!, "sp")
                         reCreateFragment()
                         //callProductListAPI("sp")
                     }
@@ -223,7 +237,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                     label = getString(R.string.zh)
                     callback = {
                         sessionManager.put("type", "ch")
-                        getLanguageType(activity!!,"ch")
+                        getLanguageType(activity!!, "ch")
                         //setLocale("zh")
                         reCreateFragment()
                         //callProductListAPI("ch")
@@ -235,7 +249,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                     callback = {
                         sessionManager.put("type", "fr")
                         //setLocale("fr")
-                        getLanguageType(activity!!,"fr")
+                        getLanguageType(activity!!, "fr")
                         reCreateFragment()
                         //callProductListAPI("fr")
                     }
@@ -245,7 +259,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                     label = getString(R.string.ta)
                     callback = {
                         sessionManager.put("type", "tm")
-                        getLanguageType(activity!!,"tm")
+                        getLanguageType(activity!!, "tm")
                         //setLocale("ta")
                         reCreateFragment()
                         //callProductListAPI("tm")
@@ -256,7 +270,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
                     label = getString(R.string.te)
                     callback = {
                         sessionManager.put("type", "te")
-                        getLanguageType(activity!!,"te")
+                        getLanguageType(activity!!, "te")
                         // callProductListAPI("te")
                         //setLocale("te")
                         reCreateFragment()
@@ -267,6 +281,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
 
         popupMenu.show(activity!!, view)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         val id = item.itemId
@@ -276,151 +291,150 @@ class HomeFragment : BaseFrament(), ApiResponseInterface {
         } else if (item.itemId == R.id.filter) {
             val anchor = checkNotNull<View>(activity?.findViewById(R.id.filter))
             onCustomPaddingTextViewClicked(anchor)
-        return true
+            return true
         }
 
 
-            /*else if (id == R.id.menuEng) {
-                sessionManager.put("type", "en")
+        /*else if (id == R.id.menuEng) {
+            sessionManager.put("type", "en")
 
-                getLanguageType(activity!!,"en")
-                //setLocale("en")
-                reCreateFragment()
-                //callProductListAPI("en")
-                true
-            } else if (id == R.id.menuArabian) {
-                sessionManager.put("type", "ar")
-                //setLocale("ar")
-                getLanguageType(activity!!,"ar")
-                reCreateFragment()
-                //callProductListAPI("ar")
-                true
-            } else if (id == R.id.menuSpanish) {
-                sessionManager.put("type", "sp")
-                //setLocale("es")
-                getLanguageType(activity!!,"sp")
-                reCreateFragment()
-                //callProductListAPI("sp")
-                true
-            } else if (id == R.id.menuChinese) {
-                sessionManager.put("type", "ch")
-                getLanguageType(activity!!,"ch")
-                //setLocale("zh")
-                reCreateFragment()
-                //callProductListAPI("ch")
-                true
-            } else if (id == R.id.menuFrench) {
-                sessionManager.put("type", "fr")
-                //setLocale("fr")
-                getLanguageType(activity!!,"fr")
-                reCreateFragment()
-                //callProductListAPI("fr")
-                true
-            } else if (id == R.id.menuTamil) {
-                sessionManager.put("type", "tm")
-                getLanguageType(activity!!,"tm")
-                //setLocale("ta")
-                reCreateFragment()
-                //callProductListAPI("tm")
-                true
-            } else if (id == R.id.menuTelugu) {
-                sessionManager.put("type", "te")
-                getLanguageType(activity!!,"te")
-               // callProductListAPI("te")
-                //setLocale("te")
-                reCreateFragment()
-                true
-            }*/ else super.onOptionsItemSelected(item)
+            getLanguageType(activity!!,"en")
+            //setLocale("en")
+            reCreateFragment()
+            //callProductListAPI("en")
+            true
+        } else if (id == R.id.menuArabian) {
+            sessionManager.put("type", "ar")
+            //setLocale("ar")
+            getLanguageType(activity!!,"ar")
+            reCreateFragment()
+            //callProductListAPI("ar")
+            true
+        } else if (id == R.id.menuSpanish) {
+            sessionManager.put("type", "sp")
+            //setLocale("es")
+            getLanguageType(activity!!,"sp")
+            reCreateFragment()
+            //callProductListAPI("sp")
+            true
+        } else if (id == R.id.menuChinese) {
+            sessionManager.put("type", "ch")
+            getLanguageType(activity!!,"ch")
+            //setLocale("zh")
+            reCreateFragment()
+            //callProductListAPI("ch")
+            true
+        } else if (id == R.id.menuFrench) {
+            sessionManager.put("type", "fr")
+            //setLocale("fr")
+            getLanguageType(activity!!,"fr")
+            reCreateFragment()
+            //callProductListAPI("fr")
+            true
+        } else if (id == R.id.menuTamil) {
+            sessionManager.put("type", "tm")
+            getLanguageType(activity!!,"tm")
+            //setLocale("ta")
+            reCreateFragment()
+            //callProductListAPI("tm")
+            true
+        } else if (id == R.id.menuTelugu) {
+            sessionManager.put("type", "te")
+            getLanguageType(activity!!,"te")
+           // callProductListAPI("te")
+            //setLocale("te")
+            reCreateFragment()
+            true
+        }*/ else super.onOptionsItemSelected(item)
 
-        }
+    }
 
-        fun reCreateFragment() {
-            activity?.recreate()
-            val fm = activity?.supportFragmentManager
-            fm?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        }
+    fun reCreateFragment() {
+        activity?.recreate()
+        val fm = activity?.supportFragmentManager
+        fm?.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+    }
 
 
-        override fun getApiResponse(apiResponseManager: ApiResponseManager<*>) {
-            when (apiResponseManager.type) {
-                100 -> {
-                    var model: ProductResponse
-                    model = apiResponseManager.response as ProductResponse
-                    Log.e(TAG, "Event List Response:- ${model}")
-                    if (model.statusCode == 200) {
-                        productList = ArrayList()
-                        productList?.addAll(model.data)
-                        appcontroller.setDataList(productList!!)
-                        // productMainAdapter.notifyDataSetChanged()
-                        setAdpater()
-                    }
+    override fun getApiResponse(apiResponseManager: ApiResponseManager<*>) {
+        when (apiResponseManager.type) {
+            100 -> {
+                var model: ProductResponse
+                model = apiResponseManager.response as ProductResponse
+                Log.e(TAG, "Event List Response:- ${model}")
+                if (model.statusCode == 200) {
+                    productList = ArrayList()
+                    productList?.addAll(model.data)
+                    appcontroller.setDataList(productList!!)
+                    // productMainAdapter.notifyDataSetChanged()
+                    setAdpater()
                 }
             }
         }
-
-        override fun onFailure(
-            apiResponseManager: ApiResponseManager<*>,
-            error_message: String,
-            error: Boolean
-        ) {
-            if (!error) {
-                showSnackBar(error_message)
-            }
-        }
-
-        @RequiresApi(Build.VERSION_CODES.KITKAT)
-        private fun callProductListAPI(type: String) {
-            if (isNetWork(activity!!)) {
-                ApiRequest(
-                    activity!!,
-                    ApiInitialize.initialize(ApiInitialize.MAIN_URL_API).productList(type),
-                    100,
-                    true,
-                    this
-                )
-            } else {
-                showSnackBar(activity!!.resources.getString(com.solidindia.R.string.internet_not_available))
-            }
-
-        }
-
-
-
-        /*  fun setLocale(localeString: String) {
-              val res = resources
-              val conf = res.configuration
-              val locale = Locale(localeString)
-              Locale.setDefault(locale)
-              if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR1) {
-                  conf.setLocale(locale)
-                  context?.getApplicationContext()?.createConfigurationContext(conf)
-              }
-
-              val dm = res.displayMetrics
-              if (VERSION.SDK_INT >= VERSION_CODES.N) {
-                  conf.locales = LocaleList(locale)
-              } else {
-                  conf.locale = locale
-              }
-              res.updateConfiguration(conf, dm)
-          }*/
-
-        /* fun getLanguageType(type: String){
-             Log.e(TAG,"Selecetd Language Type---$type")
-             if(type.equals("en")) {
-                 setLocale(activity!!,"en")
-             }else if (type.equals("ar")) {
-                 setLocale(activity!!,"ar")
-             }else if (type.equals("sp")) {
-                 setLocale(activity!!,"es")
-             }else if (type.equals("ch")) {
-                 setLocale(activity!!,"zh")
-             }else if (type.equals("fr")) {
-                 setLocale(activity!!,"fr")
-             }else if (type.equals("tm")) {
-                 setLocale(activity!!,"ta")
-             }else if (type.equals("te")) {
-                 setLocale(activity!!,"te")
-             }
-         }*/
     }
+
+    override fun onFailure(
+        apiResponseManager: ApiResponseManager<*>,
+        error_message: String,
+        error: Boolean
+    ) {
+        if (!error) {
+            showSnackBar(error_message)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
+    private fun callProductListAPI(type: String) {
+        if (isNetWork(activity!!)) {
+            ApiRequest(
+                activity!!,
+                ApiInitialize.initialize(ApiInitialize.MAIN_URL_API).productList(type),
+                100,
+                true,
+                this
+            )
+        } else {
+            showSnackBar(activity!!.resources.getString(com.solidindia.R.string.internet_not_available))
+        }
+
+    }
+
+
+    /*  fun setLocale(localeString: String) {
+          val res = resources
+          val conf = res.configuration
+          val locale = Locale(localeString)
+          Locale.setDefault(locale)
+          if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN_MR1) {
+              conf.setLocale(locale)
+              context?.getApplicationContext()?.createConfigurationContext(conf)
+          }
+
+          val dm = res.displayMetrics
+          if (VERSION.SDK_INT >= VERSION_CODES.N) {
+              conf.locales = LocaleList(locale)
+          } else {
+              conf.locale = locale
+          }
+          res.updateConfiguration(conf, dm)
+      }*/
+
+    /* fun getLanguageType(type: String){
+         Log.e(TAG,"Selecetd Language Type---$type")
+         if(type.equals("en")) {
+             setLocale(activity!!,"en")
+         }else if (type.equals("ar")) {
+             setLocale(activity!!,"ar")
+         }else if (type.equals("sp")) {
+             setLocale(activity!!,"es")
+         }else if (type.equals("ch")) {
+             setLocale(activity!!,"zh")
+         }else if (type.equals("fr")) {
+             setLocale(activity!!,"fr")
+         }else if (type.equals("tm")) {
+             setLocale(activity!!,"ta")
+         }else if (type.equals("te")) {
+             setLocale(activity!!,"te")
+         }
+     }*/
+}
