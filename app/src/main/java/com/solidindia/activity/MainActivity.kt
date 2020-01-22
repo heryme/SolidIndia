@@ -1,6 +1,8 @@
 package com.solidindia.activity
 
 import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -146,7 +148,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         return true
                     }
                     R.id.navigation_whats_app -> {
-                        loadFragment(WhatsAppFragment(), true,false)
+                        //loadFragment(WhatsAppFragment(), true,false)
+                        val phoneNumberWithCountryCode = "+919624777773"
+                        val message = "Solid India"
+                        startActivity(
+                            Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse(
+                                    String.format(
+                                        "https://api.whatsapp.com/send?phone=%s&text=%s",
+                                        phoneNumberWithCountryCode, message)
+                                )
+                            )
+                        )
                         return true
                     }
                 }
