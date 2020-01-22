@@ -30,7 +30,7 @@
     <string name="specification">Specification</string>
     <string name="capacity">Capacity</string>
     <string name="drum_diameter">Drum diameter</string>
-    <string name="more_then" translatable="false">MORE THAN 45 YEARS \nEXPERIENCE OF SUPPLYING \nROAD CONSTRUCTION EQUIPMENTS</string>
+    <string name="more_then" translatable="false">MORE THAN 47 YEARS \nEXPERIENCE OF SUPPLYING \nROAD CONSTRUCTION EQUIPMENTS</string>
     <string name="company_profile" translatable="false">Company Profile</string>
     <string name="founded" translatable="false">Founded and established in 1972 by Late Shri Vashrambhai
 Dodiya, we at Solid hold a prominent identity in Road Construction
@@ -61,13 +61,13 @@ to the customers for simpler and easier tasks.</string>
     <string name="since">SINCE 1972</string>
     <string name="india">INDIA</string>
     <string name="back">Back</string>
-    <string name="en">EN</string>
-    <string name="ar">AR</string>
-    <string name="es">ES</string>
-    <string name="zh">ZH</string>
-    <string name="fr">FR</string>
-    <string name="ta">TA</string>
-    <string name="te">TE</string>
+    <string name="en">ENGLISH</string>
+    <string name="ar">ARABIC</string>
+    <string name="es">SPANISH</string>
+    <string name="zh">CHINESE</string>
+    <string name="fr">FRENCH</string>
+    <string name="ta">TAMIL</string>
+    <string name="te">TELUGU</string>
     <string name="follow_us_on">Follow us on</string>
     <string name="more_product">More Product</string>
 </resources>

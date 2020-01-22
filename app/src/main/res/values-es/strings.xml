@@ -30,7 +30,7 @@
     <string name="drum_diameter">Diámetro del tambor</string>
 
 
-    <string name="more_then">MÁS DE 45 AÑOS \ n EXPERIENCIA DE SUMINISTRO \ n EQUIPOS PARA CONSTRUCCIÓN DE CARRETERAS</string>
+    <string name="more_then">MÁS DE 47 AÑOS \ n EXPERIENCIA DE SUMINISTRO \ n EQUIPOS PARA CONSTRUCCIÓN DE CARRETERAS</string>
     <string name="company_profile">Perfil de la compañía</string>
     <string name="founded">Fundado y establecido en 1972 por el último Shri Vashrambhai
 Dodiya, nosotros en Solid tenemos una identidad prominente en la construcción de carreteras
@@ -62,13 +62,13 @@ a los clientes para tareas más simples y fáciles.</string>
     <string name="since">DESDE 1972</string>
     <string name="india">INDIO</string>
     <string name="back">espalda</string>
-    <string name="en">EN</string>
-    <string name="ar">AR</string>
-    <string name="es">ES</string>
-    <string name="zh">ZH</string>
-    <string name="fr">FR</string>
-    <string name="ta">TA</string>
-    <string name="te">TE</string>
+    <string name="en">ENGLISH</string>
+    <string name="ar">ARABIC</string>
+    <string name="es">SPANISH</string>
+    <string name="zh">CHINESE</string>
+    <string name="fr">FRENCH</string>
+    <string name="ta">TAMIL</string>
+    <string name="te">TELUGU</string>
     <string name="follow_us_on">Siga con nosotros</string>
     <string name="more_product">Más producto</string>
     <string name="font_halvetica">Helvetica.ttf</string>

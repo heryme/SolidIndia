@@ -30,7 +30,7 @@
     <string name="drum_diameter">طبل القطر</string>
     <string name="font_halvetica">Helvetica.ttf</string>
 
-    <string name="more_then">أكثر من 45 عامًا / خبرة في تزويد معدات البناء بالطرق</string>
+    <string name="more_then">أكثر من 47 عامًا / خبرة في تزويد معدات البناء بالطرق</string>
     <string name="company_profile">ملف الشركة</string>
     <string name="founded">تأسست وتأسست عام 1972 على يد المرحوم شري تأسست وتأسست عام 1972 على يد المرحوم شري فاشرامباي
  نحن في صلب عقد هوية بارزة في بناء الطرق
@@ -63,13 +63,13 @@ Dodia هي خريجة التجارة حاصلة على درجة التخرج
     <string name="since">منذ عام 1972</string>
     <string name="india">الهند</string>
     <string name="back">الى الخلف</string>
-    <string name="en">EN</string>
-    <string name="ar">AR</string>
-    <string name="es">ES</string>
-    <string name="zh">ZH</string>
-    <string name="fr">FR</string>
-    <string name="ta">TA</string>
-    <string name="te">TE</string>
+    <string name="en">ENGLISH</string>
+    <string name="ar">ARABIC</string>
+    <string name="es">SPANISH</string>
+    <string name="zh">CHINESE</string>
+    <string name="fr">FRENCH</string>
+    <string name="ta">TAMIL</string>
+    <string name="te">TELUGU</string>
     <string name="follow_us_on">اتبعنا</string>
     <string name="more_product">المزيد من المنتجات</string>
 </resources>
