@@ -7,7 +7,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiInitialize {
-    var MAIN_URL_API = "http://parthshah.website/solid/api/"  //Local
+    //var MAIN_URL_API = "http://parthshah.website/solid/api/"  //Local
+    var MAIN_URL_API = "http://solid1972.com/solid1972_admin/api/"  //Local
 
     private var retrofit: Retrofit? = null
     private lateinit var apiInIt: ApiInterface

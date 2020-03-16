@@ -23,11 +23,6 @@ import com.utils.isNetWork
 
 
 
-
-
-
-
-
 /**
  * A simple [Fragment] subclass.
  */
