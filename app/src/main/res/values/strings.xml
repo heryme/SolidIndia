@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SolidIndia</string>
+    <string name="app_name">Solid1972</string>
     <string name="nav_home">Home</string>
     <string name="nav_products">Products</string>
     <string name="products">Products</string>
@@ -14,13 +14,11 @@
     <string name="btn_yes_text">Yes</string>
     <string name="tv_title_text">Are you sure want to exit?</string>
     <string name="action_search">Search</string>
-    <string name="search_hint">Search</string>
     <string name="font_halvetica">Helvetica.ttf</string>
     <string name="font_halvetica_bold" translatable="false">Helvetica-Bold-Font.ttf</string>
 
     <!-- Network Msg  -->
     <string name="toast_time_out">Please try again, There is network error</string>
-    <string name="toast_net_work">Please try again, Network not available</string>
     <string name="internet_not_available">Please try again, Network not available</string>
     <string name="toast_try_after_sometimes">Something went wrong please try after sometimes..</string>
     <string name="toast_something_wrong">Something went wrong please try again..</string>

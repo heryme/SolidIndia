@@ -24,7 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StyleRes;
 
-import com.solidindia.R;
+import com.solid1972.R;
 
 public class CircularProgressBar extends View {
 

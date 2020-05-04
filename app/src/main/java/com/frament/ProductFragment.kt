@@ -17,8 +17,8 @@ import com.rest.ApiInitialize
 import com.rest.ApiRequest
 import com.rest.ApiResponseInterface
 import com.rest.ApiResponseManager
-import com.solidindia.R
-import com.solidindia.activity.MainActivity
+import com.solid1972.R
+import com.solid1972.activity.MainActivity
 import com.utils.isNetWork
 
 

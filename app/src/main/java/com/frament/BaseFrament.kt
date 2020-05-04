@@ -6,7 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.app.AppController
 import com.google.android.material.snackbar.Snackbar
-import com.solidindia.R
+import com.solid1972.R
 import com.utils.SessionManager
 
 abstract class BaseFrament : Fragment() {

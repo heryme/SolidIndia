@@ -14,11 +14,9 @@
     <string name="btn_yes_text">是</string>
     <string name="tv_title_text">您確定要退出嗎？</string>
     <string name="action_search">Search</string>
-    <string name="search_hint">Search</string>
 
     <!-- Network Msg  -->
     <string name="toast_time_out">請重試，出現網絡錯誤</string>
-    <string name="toast_net_work">請重試，網絡不可用</string>
     <string name="internet_not_available">請重試，網絡不可用</string>
     <string name="toast_try_after_sometimes">出問題了，有時請嘗試。</string>
     <string name="toast_something_wrong">出問題了，請重試。</string>

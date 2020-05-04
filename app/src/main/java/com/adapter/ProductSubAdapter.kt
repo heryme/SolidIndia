@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.AppController
 import com.frament.ProductDetailsFragment
 import com.model.ProductResponse
-import com.solidindia.R
-import com.solidindia.activity.MainActivity
+import com.solid1972.R
+import com.solid1972.activity.MainActivity
 import com.utils.loadImage
 import kotlinx.android.synthetic.main.row_sub_product.view.*
 
@@ -80,12 +80,8 @@ class ProductSubAdapter(
             var capacity = context.getString(R.string.capacity)
             itemView.tvProductName?.text = productList[position].productName
             itemView.tvProductSubName?.text = capacity + " " + productList[position].capacity
-            if (productList[position].productImage.size > 0) {
-                loadImage(productList[position].productImage[0].path,
-                    appcontroller.getAppContext()!!, itemView.ivSubImage,
+            loadImage(productList[position].featured_image,appcontroller.getAppContext()!!, itemView.ivSubImage,
                     R.mipmap.ic_launcher)
-            }
-
 
             itemView.llSubProduct?.setOnClickListener {
                 appcontroller.setProductData(productList[position])
@@ -95,4 +91,6 @@ class ProductSubAdapter(
             }
         }
     }
+
+
 }

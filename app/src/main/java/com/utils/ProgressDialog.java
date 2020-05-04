@@ -7,9 +7,8 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatDialog;
-import androidx.appcompat.view.ContextThemeWrapper;
 
-import com.solidindia.R;
+import com.solid1972.R;
 
 import org.jetbrains.annotations.Nullable;
 

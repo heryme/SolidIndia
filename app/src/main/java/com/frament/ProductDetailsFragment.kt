@@ -14,8 +14,8 @@ import androidx.viewpager.widget.ViewPager
 import com.adapter.MyViewPagerAdapter
 import com.adapter.ProductMainAdapter
 import com.model.ProductResponse
-import com.solidindia.R
-import com.solidindia.activity.MainActivity
+import com.solid1972.R
+import com.solid1972.activity.MainActivity
 import com.utils.*
 
 
@@ -101,13 +101,15 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         val capacity = getString(R.string.capacity)
         if (productData?.productImage?.size!! > 0) {
 
-            productData?.productImage?.get(0)?.path?.let {
+
+            productData?.featured_image?.let {
                 loadImage(
                     it,
                     appcontroller.getAppContext()!!, ivSubImage,
                     R.mipmap.ic_launcher
                 )
             }
+
             /*Glide.with(context)
                 .load(productData?.productImage?.get(0)?.path)
                 .error(R.mipmap.ic_launcher)
@@ -188,9 +190,9 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
     private fun setAdapter() {
         introSliderList = ArrayList()
         introSliderList!!.addAll(productData?.productImage as ArrayList)
-        myViewPagerAdapter = MyViewPagerAdapter(activity!!, activity!!, introSliderList!!)
+        myViewPagerAdapter = MyViewPagerAdapter(activity!!, activity!!, introSliderList!!,true)
         vpSlider.setAdapter(myViewPagerAdapter);
-        vpSlider.addOnPageChangeListener(viewPagerPageChangeListener);
+        //vpSlider.addOnPageChangeListener(viewPagerPageChangeListener);
 
         var hun = getResources().getDimensionPixelSize(R.dimen._20sdp);
         if (introSliderList?.size!! > 1) {
@@ -221,9 +223,6 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         productMainAdapter = ProductMainAdapter(activity!!, activity!!, productList!!,false)
         rvProductDetails.adapter = productMainAdapter
         rvProductDetails.layoutManager = LinearLayoutManager(activity)
-
-
-
     }
 
     var viewPagerPageChangeListener: ViewPager.OnPageChangeListener =

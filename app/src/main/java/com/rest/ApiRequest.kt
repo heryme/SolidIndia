@@ -7,11 +7,9 @@ import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDialog
-import com.solidindia.R
-import com.utils.ProgressDialog
+import com.solid1972.R
 import com.utils.Toast
 import com.utils.dismissDialog
 import com.utils.getProgressDialog

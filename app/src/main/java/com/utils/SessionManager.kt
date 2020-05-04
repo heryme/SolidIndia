@@ -3,7 +3,7 @@ package com.utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Resources
-import com.solidindia.R
+import com.solid1972.R
 
 class SessionManager(private val context: Context) {
 

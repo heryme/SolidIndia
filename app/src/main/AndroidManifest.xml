@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.solidindia">
+    package="com.solid1972">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,16 +8,16 @@
     <application
         android:name="com.app.AppController"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher11"
+        android:icon="@mipmap/ic_launcher_gr"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_gr_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ShowFullImageActivity"
+        <activity android:name="com.solid1972.activity.ShowFullImageActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.solid1972.activity.SplashActivity"
             android:theme="@style/AppTheme.Fullscreen.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.solid1972.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

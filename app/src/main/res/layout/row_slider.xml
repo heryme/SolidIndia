@@ -9,7 +9,7 @@
     app:cornerRadius="40dp"
     app:shadowColor="@color/imageBorderColor"
     app:shadowMargin="13dp"
-    app:shadowRadius="50dp">
+    app:shadowRadius="5dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -18,11 +18,15 @@
         app:cardElevation="0dp"
         app:strokeColor="@color/imageBorderColor"
         app:strokeWidth="1dp">
-        <androidx.appcompat.widget.AppCompatImageView
+
+        <com.joooonho.SelectableRoundedImageView
             android:id="@+id/ivSilder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY" />
+            app:sriv_left_bottom_corner_radius="15dp"
+            app:sriv_left_top_corner_radius="15dp"
+            app:sriv_right_bottom_corner_radius="15dp"
+            app:sriv_right_top_corner_radius="15dp" />
     </com.google.android.material.card.MaterialCardView>
     <!-- <ImageView
          android:id="@+id/ivSilder1"

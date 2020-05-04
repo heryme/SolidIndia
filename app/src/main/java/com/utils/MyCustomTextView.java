@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.solidindia.R;
+import com.solid1972.R;
 
 public class MyCustomTextView extends AppCompatTextView {
 

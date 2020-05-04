@@ -14,26 +14,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.AppController
 import com.frament.HomeFragment
 import com.model.ProductResponse
-import com.solidindia.R
+import com.solid1972.R
 import kotlinx.android.synthetic.main.row_main_product.view.*
 
 
-
-class ProductMainAdapter(var context: Context,
-                         var activity:Activity,
-                         var productList: ArrayList<ProductResponse.Data>,
-                         var isShowFullItem:Boolean) :
+class ProductMainAdapter(
+    var context: Context,
+    var activity: Activity,
+    var categoryList: ArrayList<ProductResponse.Data>,
+    var isShowFullItem: Boolean
+) :
     RecyclerView.Adapter<ProductMainAdapter.SubViewHolder>(), Filterable {
 
-    private lateinit var productMainAdapter: ProductSubAdapter
+    private lateinit var productSubAdapter: ProductSubAdapter
     var appcontroller: AppController
-    private var productFilterdList = ArrayList<ProductResponse.Data>()
+    private var categoryFilterdList = ArrayList<ProductResponse.Data>()
+    private var productList = ArrayList<ProductResponse.Data.Category.Product>()
+
     init {
-        productFilterdList.addAll(productList)
+        categoryFilterdList.addAll(categoryList)
         appcontroller = activity.application as AppController
     }
+
     override fun onBindViewHolder(holder: SubViewHolder, position: Int) {
-        holder.bind(position, productList)
+        holder.bind(position, categoryList)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubViewHolder =
@@ -49,14 +53,18 @@ class ProductMainAdapter(var context: Context,
         return position
     }
 
-    override fun getItemCount(): Int = productFilterdList.size
+    override fun getItemCount(): Int = categoryFilterdList.size
 
     inner class SubViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         @SuppressLint("SetTextI18n")
         fun bind(position: Int, productList: List<ProductResponse.Data>) {
-            itemView.tvProductNameMain?.text = productFilterdList[position].category.categoryName
-            Log.e("TAG","Temp List Size--->${HomeFragment.tempList.size}")
-            setAdpater(itemView.rvSubProduct,productFilterdList[position].category.product as ArrayList<ProductResponse.Data.Category.Product>,position)
+            itemView.tvProductNameMain?.text = categoryFilterdList[position].category.categoryName
+            Log.e("TAG", "Temp List Size--->${HomeFragment.tempList.size}")
+            setAdpater(
+                itemView.rvSubProduct,
+                categoryFilterdList[position].category.product as ArrayList<ProductResponse.Data.Category.Product>,
+                position
+            )
             appcontroller.setMainAdapterPost(position)
 
         }
@@ -67,21 +75,18 @@ class ProductMainAdapter(var context: Context,
             override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {
                 val charString = charSequence.toString()
                 if (charString.isEmpty()) {
-                    productFilterdList = productList
+                    categoryFilterdList = categoryList
                 } else {
                     val filteredList = ArrayList<ProductResponse.Data>()
-                    for (row in productList) {
-
+                    for (row in categoryList) {
                         if (row.category.categoryName.toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row)
                         }
                     }
-                    productFilterdList = filteredList
+                    categoryFilterdList = filteredList
                 }
-
-
-                var filterResults = Filter.FilterResults()
-                filterResults.values = productFilterdList
+                val filterResults = Filter.FilterResults()
+                filterResults.values = categoryFilterdList
                 return filterResults
             }
 
@@ -89,16 +94,22 @@ class ProductMainAdapter(var context: Context,
                 charSequence: CharSequence,
                 filterResults: Filter.FilterResults
             ) {
-                productFilterdList = filterResults.values as ArrayList<ProductResponse.Data>
+                categoryFilterdList = filterResults.values as ArrayList<ProductResponse.Data>
                 notifyDataSetChanged()
             }
         }
     }
 
-    private fun setAdpater(recyclerView: RecyclerView,productSubList: ArrayList<ProductResponse.Data.Category.Product>,position: Int) {
-        productMainAdapter = ProductSubAdapter(context,activity, productSubList,position,isShowFullItem)
-        recyclerView.adapter = productMainAdapter
+    private fun setAdpater(
+        recyclerView: RecyclerView,
+        productSubList: ArrayList<ProductResponse.Data.Category.Product>,
+        position: Int
+    ) {
+        productList.addAll(productSubList)
+        productSubAdapter = ProductSubAdapter(context, activity, productSubList, position, isShowFullItem)
+        recyclerView.adapter = productSubAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }
+
 
 }

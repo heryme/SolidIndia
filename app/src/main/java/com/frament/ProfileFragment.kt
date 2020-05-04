@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
-import com.solidindia.R
-import com.solidindia.activity.MainActivity
+import com.solid1972.R
+import com.solid1972.activity.MainActivity
 import com.utils.*
 
 

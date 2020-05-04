@@ -17,12 +17,12 @@
 
             <ImageView
                 android:id="@+id/ivbarToolbar"
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_gravity="start"
                 android:gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher11"
+                android:src="@drawable/ic_solid_logo"
                 android:textColor="#1FA38F"
                 android:visibility="gone" />
 

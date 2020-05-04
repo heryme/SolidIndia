@@ -14,11 +14,9 @@
     <string name="btn_yes_text">అవును</string>
     <string name="tv_title_text">మీరు ఖచ్చితంగా నిష్క్రమించాలనుకుంటున్నారా?</string>
     <string name="action_search">Search</string>
-    <string name="search_hint">Search</string>
 
     <!-- Network Msg  -->
     <string name="toast_time_out">దయచేసి మళ్ళీ ప్రయత్నించండి, నెట్‌వర్క్ లోపం ఉంది</string>
-    <string name="toast_net_work">దయచేసి మళ్ళీ ప్రయత్నించండి, నెట్‌వర్క్ అందుబాటులో లేదు</string>
     <string name="internet_not_available">దయచేసి మళ్ళీ ప్రయత్నించండి, నెట్‌వర్క్ అందుబాటులో లేదు</string>
     <string name="toast_try_after_sometimes">ఏదో తప్పు జరిగింది దయచేసి కొన్నిసార్లు ప్రయత్నించండి ..</string>
     <string name="toast_something_wrong">ఏదో తప్పు జరిగింది దయచేసి మళ్ళీ ప్రయత్నించండి ..</string>

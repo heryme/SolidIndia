@@ -24,9 +24,9 @@ import com.rest.ApiInitialize
 import com.rest.ApiRequest
 import com.rest.ApiResponseInterface
 import com.rest.ApiResponseManager
-import com.solidindia.R
-import com.solidindia.activity.MainActivity
-import com.solidindia.activity.ShowFullImageActivity
+import com.solid1972.R
+import com.solid1972.activity.MainActivity
+import com.solid1972.activity.ShowFullImageActivity
 import com.utils.CustomTypefaceSpan
 import com.utils.getLanguageType
 import com.utils.isNetWork
@@ -158,13 +158,14 @@ class HomeFragment : BaseFrament(), ApiResponseInterface,View.OnClickListener {
         searchView!!.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 // filter recycler view when query submitted
-                productMainAdapter?.getFilter()?.filter(query)
+               // productMainAdapter?.getFilter()?.filter(query)
                 return false
             }
 
             override fun onQueryTextChange(query: String): Boolean {
                 // filter recycler view when text is changed
-                productMainAdapter?.getFilter()?.filter(query)
+               productMainAdapter?.getFilter()?.filter(query)
+
                 return false
             }
         })
@@ -179,8 +180,6 @@ class HomeFragment : BaseFrament(), ApiResponseInterface,View.OnClickListener {
                 (context as MainActivity).ivbarToolbar.visibility = View.GONE
             }
         })
-
-
     }
 
     private fun applyFontToMenuItem(mi: MenuItem) {
@@ -394,7 +393,7 @@ class HomeFragment : BaseFrament(), ApiResponseInterface,View.OnClickListener {
                 this
             )
         } else {
-            showSnackBar(activity!!.resources.getString(com.solidindia.R.string.internet_not_available))
+            showSnackBar(activity!!.resources.getString(com.solid1972.R.string.internet_not_available))
         }
 
     }

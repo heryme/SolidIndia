@@ -1,8 +1,11 @@
 package com.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ProductResponse(
     @SerializedName("data")
     val `data`: List<Data>,
@@ -10,11 +13,13 @@ data class ProductResponse(
     val message: String,
     @SerializedName("status_code")
     val statusCode: Int
-) {
+) : Parcelable {
+    @Parcelize
     data class Data(
         @SerializedName("category")
         val category: Category
-    ) {
+    ) : Parcelable {
+        @Parcelize
         data class Category(
             @SerializedName("category_arabian")
             val categoryArabian: String,
@@ -42,7 +47,7 @@ data class ProductResponse(
             val product: List<Product>,
             @SerializedName("updated_at")
             val updatedAt: String
-        ) {
+        ) : Parcelable {@Parcelize
             data class Product(
                 @SerializedName("capacity")
                 val capacity: String,
@@ -59,15 +64,18 @@ data class ProductResponse(
                 @SerializedName("productName")
                 val productName: String,
                 @SerializedName("storage")
-                val storage: String
-            ) {
+                val storage: String,
+                @SerializedName("featured_image")
+                val featured_image: String
+            ) : Parcelable {
+            @Parcelize
                 data class ProductImage(
                     @SerializedName("path")
                     val path: String,
                     @SerializedName("type")
                     val type: String
-                )
-            }
+                ) : Parcelable
+        }
         }
     }
 }

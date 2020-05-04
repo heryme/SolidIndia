@@ -14,11 +14,9 @@
     <string name="btn_yes_text">ஆம்</string>
     <string name="tv_title_text">நீங்கள் நிச்சயமாக வெளியேற விரும்புகிறீர்களா?</string>
     <string name="action_search">Search</string>
-    <string name="search_hint">Search</string>
 
     <!-- Network Msg  -->
     <string name="toast_time_out">தயவுசெய்து மீண்டும் முயற்சிக்கவும், பிணைய பிழை உள்ளது</string>
-    <string name="toast_net_work" >தயவுசெய்து மீண்டும் முயற்சிக்கவும், பிணையம் கிடைக்கவில்லை</string>
     <string name="internet_not_available">தயவுசெய்து மீண்டும் முயற்சிக்கவும், பிணையம் கிடைக்கவில்லை</string>
     <string name="toast_try_after_sometimes"> ஏதோ தவறு ஏற்பட்டது, சில நேரங்களில் முயற்சிக்கவும் ..</string>
     <string name="toast_something_wrong">ஏதோ தவறு ஏற்பட்டது, மீண்டும் முயற்சிக்கவும் ..</string>

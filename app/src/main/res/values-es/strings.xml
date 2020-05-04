@@ -14,11 +14,9 @@
     <string name="btn_yes_text">Sí</string>
     <string name="tv_title_text">¿Estás seguro que quieres salir?</string>
     <string name="action_search">Search</string>
-    <string name="search_hint">Search</string>
 
     <!-- Network Msg  -->
     <string name="toast_time_out">Por favor intente nuevamente, hay un error de red</string>
-    <string name="toast_net_work">Por favor intente nuevamente, la red no está disponible</string>
     <string name="internet_not_available">Por favor intente nuevamente, la red no está disponible</string>
     <string name="toast_try_after_sometimes">Algo salió mal, por favor intente después a veces ...</string>
     <string name="toast_something_wrong">Algo salió mal. Por favor, vuelva a intentarlo..</string>

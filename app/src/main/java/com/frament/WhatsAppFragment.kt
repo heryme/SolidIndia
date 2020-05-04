@@ -5,8 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
-import com.solidindia.R
-import com.solidindia.activity.MainActivity
+import com.solid1972.R
+import com.solid1972.activity.MainActivity
 
 
 class WhatsAppFragment : BaseFrament(), View.OnClickListener {
