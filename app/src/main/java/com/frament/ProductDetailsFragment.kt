@@ -16,7 +16,10 @@ import com.adapter.ProductMainAdapter
 import com.model.ProductResponse
 import com.solid1972.R
 import com.solid1972.activity.MainActivity
-import com.utils.*
+import com.utils.FB_URL
+import com.utils.INSTA_URL
+import com.utils.YOUTUE_URL
+import com.utils.loadImage
 
 
 class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
@@ -141,7 +144,6 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
         ivFacebook = rootView.findViewById(R.id.ivFacebook)
         ivYoutube = rootView.findViewById(R.id.ivYoutube)
         ivInsta = rootView.findViewById(R.id.ivInsta)
-
     }
 
     override fun onClick(view: View?) {
@@ -153,8 +155,7 @@ class ProductDetailsFragment : BaseFrament(), View.OnClickListener {
                 shareIntent()
             }
             ivPdf -> {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(WEB_URL))
-                startActivity(browserIntent)
+                (activity as MainActivity).loadFragment(PdfViewFragment(), false,true)
             }
             ivFacebook -> {
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(FB_URL))

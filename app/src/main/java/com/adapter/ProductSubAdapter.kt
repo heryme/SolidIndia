@@ -55,9 +55,6 @@ class ProductSubAdapter(
                 tempList.add(productList[position])
                 Log.e("TAG", "Temp List Size--->${tempList.size}")
             }*/
-
-
-
             if (isShowAllListItem) {
                 itemView.visibility = View.VISIBLE
                 val params = RecyclerView.LayoutParams(

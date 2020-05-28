@@ -14,6 +14,7 @@ import com.github.tntkhang.fullscreenimageview.library.TouchImageView
 import com.model.ProductResponse
 import com.solid1972.R
 import com.solid1972.activity.ShowFullImageActivity
+import com.utils.CircularProgressBar
 import com.utils.loadImage
 
 
@@ -62,16 +63,8 @@ class MyViewPagerAdapter(
                     .load(path)
                     .into(ivFullImage)
 
-            //  loadImage(path, appcontroller.getAppContext()!!, ivFullImage, R.mipmap.ic_launcher)
+              //loadImage(progressBar,path, appcontroller.getAppContext()!!, ivFullImage, R.mipmap.ic_launcher)
         }
-
-        /* Glide.with(context)
-                    .load(item.getPath())
-                    .error(R.mipmap.ic_launcher)
-                    .into(ivSilder);*/
-
-
-        //view.setBackgroundColor(Color.parseColor(item.getBackgroundColor())/*colors[position]*/);
         container.addView(view)
         return view
     }

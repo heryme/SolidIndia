@@ -14,10 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.solid1972.activity.ShowFullImageActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name="com.solid1972.activity.SplashActivity"
+            android:name=".activity.ShowFullImageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/AppTheme.Fullscreen.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +28,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.solid1972.activity.MainActivity"
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

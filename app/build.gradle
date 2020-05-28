@@ -11,8 +11,8 @@ android {
         applicationId "com.solid1972"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:4.0.1'
     implementation 'com.loopeer.lib:shadow:0.0.3'
     implementation 'com.joooonho:selectableroundedimageview:1.0.1'
-   // implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
     implementation 'com.github.tntkhang:full-screen-image-view-library:1.1.0'
 

@@ -27,6 +27,9 @@
             app:sriv_left_top_corner_radius="15dp"
             app:sriv_right_bottom_corner_radius="15dp"
             app:sriv_right_top_corner_radius="15dp" />
+
+
+
     </com.google.android.material.card.MaterialCardView>
     <!-- <ImageView
          android:id="@+id/ivSilder1"

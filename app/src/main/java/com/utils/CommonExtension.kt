@@ -1,12 +1,15 @@
 package com.utils
 
 import android.annotation.SuppressLint
+import android.app.ProgressDialog
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Build
 import android.os.LocaleList
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDialog
@@ -35,7 +38,7 @@ fun Toast(msg: Any?, isShort: Boolean = true, app: Context) {
 fun getProgressDialog(context: Context): AppCompatDialog {
 
     val isCalncelable = false
-    val myCustomProgressDialog = ProgressDialog(context)
+    val myCustomProgressDialog = com.utils.ProgressDialog(context)
     myCustomProgressDialog.setCancelable(isCalncelable)
     myCustomProgressDialog.show()
     return myCustomProgressDialog
@@ -103,16 +106,10 @@ fun getLanguageType(context: Context,type: String){
 }
 
 fun loadImage(imagePath: String, context: Context, targetImageView: ImageView,errorImage: Int) {
-//    Glide.with(context).load(imagePath)
-//            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-//            .skipMemoryCache(false)
-//            .error(errorImage)
-//            .into(targetImageView)
-
     Glide.with(context)
         .load(imagePath)
-        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-        .skipMemoryCache(false)
+        /*.diskCacheStrategy(DiskCacheStrategy.SOURCE)
+        .skipMemoryCache(false)*/
         .listener(object : RequestListener<String, GlideDrawable> {
             override fun onResourceReady(resource: GlideDrawable?, model: String?, target: com.bumptech.glide.request.target.Target<GlideDrawable>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
                 targetImageView.scaleType = ImageView.ScaleType.FIT_XY
